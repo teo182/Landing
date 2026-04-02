@@ -44,7 +44,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   "@type": "LegalService",
   "name": "Recupero Crediti Italia – Studio Legale Tremolada",
   "description": "Studio legale specializzato in recupero crediti stragiudiziale e giudiziale in tutta Italia.",
-  "url": "https://www.recuperocreditiaziende.it/",
+  "url": "https://www.recuperocreditiitalia.it/",
   "telephone": "+39-3934411700",
   "email": "avv.tremolada@gmail.com",
   "address": {
@@ -67,6 +67,54 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     "name": "Matteo Tremolada",
     "jobTitle": "Avvocato"
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quanto costa il recupero crediti?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Il costo dipende dal tipo di credito, dal valore, dalla documentazione disponibile e dal percorso piu adatto. La prima valutazione serve proprio a capire se procedere e con quali possibili costi."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quanto tempo ci vuole?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I tempi variano in base al caso. Una diffida puo richiedere pochi giorni, mentre un percorso giudiziale o esecutivo puo richiedere piu tempo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Serve sempre andare in tribunale?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. In molti casi si valuta prima una strada stragiudiziale, come solleciti o diffida formale. Le azioni giudiziali si prendono in considerazione solo quando necessario."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quali documenti servono per iniziare?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Di solito sono utili contratto, fatture, email, messaggi, solleciti gia inviati e ogni documento che dimostri il credito e la sua scadenza."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ricevero una risposta rapida dopo il contatto?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "L'obiettivo e fornire un primo riscontro entro 24 ore lavorative con una valutazione generale della situazione."
+      }
+    }
+  ]
 }
 </script>
 
@@ -149,13 +197,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.65;
     max-width: 460px; margin-bottom: 36px; font-style: italic;
   }
+  .hero-urgency {
+    margin-top: 18px; font-size: 13px; color: rgba(255,255,255,0.78);
+    letter-spacing: 0.01em;
+  }
   .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
   .btn-primary {
+    position: relative; isolation: isolate;
     background: var(--gold); color: var(--navy); font-weight: 500; font-size: 15px;
     padding: 13px 28px; border-radius: 4px; border: none; cursor: pointer;
     text-decoration: none; display: inline-block; transition: background 0.15s, transform 0.1s;
   }
   .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-primary::after {
+    content: ""; position: absolute; inset: -6px; border-radius: 10px;
+    border: 1px solid rgba(212,173,69,0.65); opacity: 0; transform: scale(0.98);
+    pointer-events: none;
+  }
+  .btn-primary.pulse-gold:not(:hover)::after { animation: goldPulse 3s ease-in-out infinite; }
   .btn-outline {
     background: transparent; color: var(--white); font-size: 15px;
     padding: 12px 24px; border-radius: 4px;
@@ -181,6 +240,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   .hc-icon { font-size: 18px; margin-top: 1px; flex-shrink: 0; }
   .hc-text { font-size: 14px; color: rgba(255,255,255,0.72); line-height: 1.5; }
   .hc-text strong { display: block; color: var(--white); font-weight: 500; margin-bottom: 2px; font-size: 14px; }
+  .hero-stagger-item { opacity: 0; transform: translateY(12px); }
+  .hero-card.is-ready .hero-stagger-item { animation: heroItemIn 0.55s ease forwards; }
+  .hero-card.is-ready .hero-stagger-item:nth-child(2) { animation-delay: 0s; }
+  .hero-card.is-ready .hero-stagger-item:nth-child(3) { animation-delay: 0.15s; }
+  .hero-card.is-ready .hero-stagger-item:nth-child(4) { animation-delay: 0.3s; }
+  .hero-card.is-ready .hero-stagger-item:nth-child(5) { animation-delay: 0.45s; }
 
   /* ===== TRUST BAR ===== */
   .trust-bar {
@@ -197,6 +262,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   .section-kicker { font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
   .section-title { font-family: var(--serif); font-size: clamp(28px, 3.5vw, 40px); font-weight: 600; color: var(--navy); line-height: 1.18; letter-spacing: -0.01em; }
   .section-sub { font-size: 16px; color: var(--gray-text); font-weight: 300; line-height: 1.75; margin-top: 16px; }
+  [data-reveal] {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
 
   /* ===== CHI SONO ===== */
   .chisono-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
@@ -229,6 +299,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   .pstep-dot { width: 44px; height: 44px; border-radius: 50%; background: var(--gold-pale); border: 1.5px solid rgba(184,149,42,0.4); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 16px; font-weight: 700; color: var(--gold); margin-bottom: 20px; }
   .pstep h3 { font-family: var(--serif); font-size: 18px; font-weight: 600; color: var(--navy); margin-bottom: 10px; }
   .pstep p { font-size: 14px; color: var(--gray-text); line-height: 1.68; font-weight: 300; }
+  .pstep-time { margin-top: 12px; font-size: 12px; color: var(--gold); letter-spacing: 0.02em; }
 
   /* ===== A CHI È RIVOLTO ===== */
   .target-outer { background: var(--navy); }
@@ -307,6 +378,44 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   .privacy-label { font-size: 12px; color: rgba(255,255,255,0.38); line-height: 1.6; }
   .privacy-label a { color: var(--gold-light); }
   .submit-btn { width: 100%; padding: 15px; font-size: 16px; border-radius: 4px; letter-spacing: 0.01em; }
+  .form-progress {
+    margin-bottom: 22px; padding: 16px 18px; border-radius: 8px;
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.09);
+  }
+  .form-progress-bar {
+    height: 6px; border-radius: 999px; overflow: hidden;
+    background: rgba(255,255,255,0.12); margin-bottom: 12px;
+  }
+  .form-progress-bar span {
+    display: block; width: 50%; height: 100%;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  }
+  .form-progress-steps {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    font-size: 12px; color: rgba(255,255,255,0.55);
+  }
+  .form-progress-steps strong { display: block; color: var(--white); font-size: 13px; }
+
+  /* ===== FAQ ===== */
+  .faq-outer { background: var(--cream); }
+  .faq-list { margin-top: 40px; display: grid; gap: 14px; }
+  .faq-item {
+    background: var(--white); border: 1px solid var(--gray-light);
+    border-radius: 8px; padding: 0 22px;
+  }
+  .faq-item summary {
+    list-style: none; cursor: pointer; padding: 20px 0;
+    font-weight: 500; color: var(--navy); position: relative; padding-right: 28px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: "+"; position: absolute; right: 0; top: 18px;
+    color: var(--gold); font-size: 22px; line-height: 1;
+  }
+  .faq-item[open] summary::after { content: "-"; }
+  .faq-item p {
+    padding: 0 0 20px; font-size: 14px; color: var(--gray-text); line-height: 1.7;
+  }
 
   /* ===== FOOTER ===== */
   .footer-main {
@@ -339,6 +448,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   .wa-float:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(37,211,102,0.45); }
   .wa-float svg { width: 22px; height: 22px; flex-shrink: 0; }
   .wa-float-label { white-space: nowrap; }
+  .wa-float.bounce-soft:not(:hover) { animation: waBounce 8s ease-in-out infinite; }
+
+  /* ===== MOBILE STICKY CTA ===== */
+  .mobile-sticky-cta {
+    position: fixed; left: 16px; right: 16px; bottom: 14px; z-index: 998;
+    display: none; gap: 10px; opacity: 0; transform: translateY(20px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  .mobile-sticky-cta.is-visible { opacity: 1; transform: translateY(0); }
+  .mobile-sticky-cta a {
+    flex: 1; text-align: center; text-decoration: none; padding: 13px 16px;
+    border-radius: 999px; font-weight: 500; font-size: 14px;
+    box-shadow: 0 12px 32px rgba(7,16,26,0.18);
+  }
+  .mobile-call { background: var(--gold); color: var(--navy); }
+  .mobile-wa { background: var(--wa-green); color: var(--white); }
+
+  @keyframes goldPulse {
+    0%, 72%, 100% { opacity: 0; transform: scale(0.98); box-shadow: 0 0 0 rgba(212,173,69,0); }
+    8% { opacity: 0.85; }
+    24% { opacity: 0; transform: scale(1.08); box-shadow: 0 0 0 12px rgba(212,173,69,0); }
+  }
+  @keyframes waBounce {
+    0%, 92%, 100% { transform: translateY(0); }
+    94% { transform: translateY(-6px); }
+    96% { transform: translateY(0); }
+    98% { transform: translateY(-3px); }
+  }
+  @keyframes heroItemIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 780px) {
@@ -357,16 +498,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     .rec-header { flex-direction: column; }
     .wa-float { bottom: 20px; right: 16px; padding: 12px 16px; }
     .wa-float-label { display: none; }
+    .mobile-sticky-cta { display: flex; }
+    body { padding-bottom: 84px; }
   }
 </style>
 </head>
 <body>
 
 <!-- ===== WHATSAPP FLOATING BUTTON ===== -->
-<a href="https://wa.me/393934411700?text=Buongiorno%20Avv.%20Tremolada%2C%20vorrei%20richiederLe%20una%20consulenza%20per%20il%20recupero%20di%20un%20credito." class="wa-float" target="_blank" rel="noopener" aria-label="Contatta su WhatsApp">
+<a href="https://wa.me/393934411700?text=Buongiorno%20Avv.%20Tremolada%2C%20vorrei%20richiederLe%20una%20consulenza%20per%20il%20recupero%20di%20un%20credito." class="wa-float bounce-soft" target="_blank" rel="noopener" aria-label="Contatta su WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   <span class="wa-float-label">Scrivici su WhatsApp</span>
 </a>
+<div class="mobile-sticky-cta" id="mobileStickyCta" aria-label="Contatti rapidi">
+  <a href="tel:+393934411700" class="mobile-call">Chiama</a>
+  <a href="https://wa.me/393934411700?text=Buongiorno%20Avv.%20Tremolada%2C%20vorrei%20richiederLe%20una%20consulenza%20per%20il%20recupero%20di%20un%20credito." class="mobile-wa" target="_blank" rel="noopener">WhatsApp</a>
+</div>
 
 <!-- ===== NAV ===== -->
 <nav>
@@ -393,36 +540,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- ===== HERO ===== -->
-<div class="hero-outer">
+<div class="hero-outer" data-reveal>
   <div class="hero">
     <div>
       <div class="hero-kicker">Studio Legale Tremolada · Operativo in tutta Italia</div>
-      <h1>Recupera i tuoi crediti con un metodo chiaro</h1>
-      <p class="hero-sub">Assistenza legale per il recupero dei tuoi crediti in tutta Italia · Prima analisi gratuita, risposta entro 24 ore</p>
+      <h1>Hai un credito non pagato? È il momento di agire.</h1>
+      <p class="hero-sub">Ti diciamo subito se il tuo credito è recuperabile e come farlo, senza rischi inutili.</p>
       <p class="hero-micro">Se hai crediti da riscuotere, non sai da dove iniziare e i tuoi tentativi sono risultati infruttuosi, puoi affidarti a un avvocato esperto che ti accompagna passo dopo passo, spiegandoti in modo chiaro rischi, tempi e possibili sviluppi.</p>
       <div class="hero-ctas">
-        <a href="#contatti" class="btn-primary">Richiedi un'analisi del tuo caso →</a>
+        <a href="#contatti" class="btn-primary pulse-gold">Richiedi un'analisi del tuo caso →</a>
         <a href="#servizi" class="btn-outline">Scopri i servizi</a>
       </div>
+      <p class="hero-urgency">Risposta entro 24 ore lavorative - prima consulenza senza impegno</p>
     </div>
     <div>
       <div class="hero-card">
         <div class="hc-title">Perché affidarsi a noi</div>
-        <div class="hc-item">
+        <div class="hc-item hero-stagger-item">
           <span class="hc-icon">🇮🇹</span>
           <div class="hc-text"><strong>Attività su tutta Italia</strong>Seguiamo pratiche in tutto il territorio nazionale.</div>
         </div>
-        <div class="hc-item">
+        <div class="hc-item hero-stagger-item">
           <span class="hc-icon">⚖️</span>
           <div class="hc-text"><strong>Metodo legale strutturato</strong>Dalla diffida alle azioni esecutive, ogni passo segue procedure conformi alle regole vigenti.</div>
         </div>
-        <div class="hc-item">
+        <div class="hc-item hero-stagger-item">
           <span class="hc-icon">🤝</span>
           <div class="hc-text"><strong>Approccio deontologicamente corretto</strong>Chiarezza su costi, rischi e aspettative realistiche.</div>
         </div>
-        <div class="hc-item">
+        <div class="hc-item hero-stagger-item">
           <span class="hc-icon">📋</span>
-          <div class="hc-text"><strong>Prima consulenza gratuita</strong>Valutiamo il tuo caso senza impegno economico entro 24 ore.</div>
+          <div class="hc-text"><strong>Prima consulenza senza impegno</strong>Valutiamo il tuo caso senza impegno economico entro 24 ore.</div>
         </div>
       </div>
     </div>
@@ -430,28 +578,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- ===== TRUST BAR ===== -->
-<div class="trust-bar">
+<div class="trust-bar" data-reveal>
   <div class="trust-item">🇮🇹 Attività su tutta Italia</div>
   <div class="trust-item">⚖️ Metodo legale strutturato</div>
   <div class="trust-item">🤝 Approccio deontologicamente corretto</div>
-  <div class="trust-item">📋 Prima consulenza gratuita</div>
+  <div class="trust-item">📋 Prima consulenza senza impegno</div>
 </div>
 
 <!-- ===== CHI SONO ===== -->
-<div id="chi-sono">
+<div id="chi-sono" data-reveal>
   <div class="section-inner">
     <div class="chisono-grid">
       <div>
         <div class="section-kicker">Chi siamo</div>
         <h2 class="section-title">Chi siamo</h2>
         <p class="section-sub">Da oltre dieci anni ci occupiamo di diritto civile e, in particolare, di recupero crediti.</p>
-        <p class="section-sub" style="margin-top:14px;">Seguiamo imprese, professionisti e privati nel recupero dei loro crediti in tutta Italia, con un metodo basato su ascolto, analisi giuridica accurata e una comunicazione costante sullo stato della pratica.</p>
+        <p class="section-sub" style="margin-top:14px;">Seguiamo imprese, professionisti e privati nel recupero dei loro crediti in tutta Italia, con un metodo basato su analisi giuridica accurata e una comunicazione costante sullo stato della pratica.</p>
         <div class="anni-badge">
-          <span class="anni-num">10+</span>
+          <span class="anni-num" data-count="10" data-suffix="+">0</span>
           <span class="anni-label">anni di esperienza in diritto civile<br>e recupero crediti</span>
         </div>
 		<div class="anni-badge">
-          <span class="anni-num">5+</span>
+          <span class="anni-num" data-count="3" data-suffix="+">0</span>
           <span class="anni-label">milioni di Euro di crediti<br>recuperati con successo</span>
         </div>
       </div>
@@ -466,7 +614,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- ===== COSA FACCIO ===== -->
-<div class="cosa-outer" id="servizi">
+<div class="cosa-outer" id="servizi" data-reveal>
   <div class="section-inner">
     <div class="cosa-grid">
       <div>
@@ -500,7 +648,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- ===== PERCORSO ===== -->
-<div id="percorso">
+<div id="percorso" data-reveal>
   <div class="section-inner">
     <div class="section-kicker">Come funziona</div>
     <h2 class="section-title">Come funziona il percorso di recupero crediti</h2>
@@ -510,24 +658,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="pstep-dot">1</div>
         <h3>Analisi del caso</h3>
         <p>Invii una breve descrizione del tuo problema e la documentazione essenziale (fatture, contratto, eventuali solleciti già inviati). Valutiamo se esistono i presupposti giuridici per procedere e quali strade sono realisticamente percorribili.</p>
+        <div class="pstep-time">Indicativamente: 1-2 giorni lavorativi</div>
       </div>
       <div class="pstep">
         <div class="pstep-connector"></div>
         <div class="pstep-dot">2</div>
         <h3>Strategia condivisa</h3>
         <p>Ti proponiamo una linea d'azione: solleciti stragiudiziali, diffida formale, ricorso per decreto ingiuntivo, eventuale mediazione o negoziazione assistita, fino alle procedure esecutive quando necessario. Ogni passo viene concordato con te, chiarendo rischi e possibili sviluppi.</p>
+        <div class="pstep-time">Indicativamente: 2-3 giorni lavorativi</div>
       </div>
       <div class="pstep">
         <div class="pstep-dot">3</div>
         <h3>Azione e aggiornamento costante</h3>
         <p>Una volta definita la strategia, procediamo con gli atti opportuni e ti teniamo aggiornato sull'andamento, sulle risposte del debitore e sugli sviluppi presso gli organi competenti. In ogni momento puoi chiedere chiarimenti o rivedere le opzioni disponibili.</p>
+        <div class="pstep-time">Indicativamente: da 30 a 60 giorni per le attività stragiudiziali, da 1 a 6 mesi per quelle giudiziali, a seconda delle tempistiche dell'autorità giudiziaria</div>
       </div>
     </div>
   </div>
 </div>
 
 <!-- ===== A CHI È RIVOLTO ===== -->
-<div class="target-outer">
+<div class="target-outer" data-reveal>
   <div class="section-inner">
     <div class="section-kicker">A chi è rivolto</div>
     <h2 class="section-title" style="color:var(--white);">A chi è rivolto questo servizio</h2>
@@ -553,7 +704,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- ===== RECENSIONI ===== -->
-<div class="rec-outer" id="recensioni">
+<div class="rec-outer" id="recensioni" data-reveal>
   <div class="section-inner">
     <div class="rec-header">
       <div>
@@ -608,7 +759,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- ===== DEONTOLOGIA ===== -->
-<div id="deontologia">
+<div id="deontologia" data-reveal>
   <div class="section-inner">
     <div class="section-kicker">Il nostro approccio</div>
     <h2 class="section-title" style="margin-bottom:36px;">Un metodo rigoroso, un risultato più sicuro</h2>
@@ -629,7 +780,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- ===== FORM / CONTATTI ===== -->
-<div class="form-outer" id="contatti">
+<div class="form-outer" id="contatti" data-reveal>
   <div class="form-inner">
     <div class="form-left">
       <div class="section-kicker">Contatti</div>
@@ -646,6 +797,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <form class="cta-form" action="https://formspree.io/f/xgopeklz" method="POST" aria-label="Modulo richiesta consulenza">
 	<input type="hidden" name="_next" value="https://recuperocreditiaziende.it/grazie.html">
+      <div class="full form-progress" aria-hidden="true">
+        <div class="form-progress-bar"><span></span></div>
+        <div class="form-progress-steps">
+          <div><strong>1. I tuoi dati</strong>Nome, email, telefono e profilo.</div>
+          <div><strong>2. La tua situazione</strong>Importo e breve descrizione del credito.</div>
+        </div>
+      </div>
       <input type="text" name="nome" placeholder="Nome e cognome *" required autocomplete="name">
       <input type="email" name="email" placeholder="Email *" required autocomplete="email">
       <input type="tel" name="telefono" placeholder="Telefono *" required autocomplete="tel">
@@ -662,9 +820,44 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <label class="privacy-label" for="privacy">Dichiaro di aver letto l'<a href="/privacy.html">informativa privacy</a> e acconsento al trattamento dei miei dati personali per la gestione della mia richiesta di contatto.</label>
       </div>
       <div class="full">
-        <button type="submit" class="btn-primary submit-btn">Invia ora la tua richiesta</button>
+        <button type="submit" class="btn-primary submit-btn">Voglio sapere come recuperare il mio credito →</button>
       </div>
     </form>
+  </div>
+</div>
+
+<!-- ===== FAQ ===== -->
+<div class="faq-outer" id="faq" data-reveal>
+  <div class="section-inner">
+    <div class="section-kicker">FAQ</div>
+    <h2 class="section-title">Domande frequenti prima di iniziare</h2>
+    <p class="section-sub">Risposte chiare ai dubbi più comuni, prima di valutare il tuo caso.</p>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Quanto costa il recupero crediti?</summary>
+        <p>Dipende dal valore del credito, dalla documentazione disponibile e dalla strada più adatta al caso specifico. La prima analisi serve a capire se procedere e con quali possibili costi, evitando passi inutili.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Quanto tempo ci vuole?</summary>
+        <p>I tempi cambiano in base alla situazione. Una diffida può essere predisposta e inviata in pochi giorni, mentre un percorso giudiziale o esecutivo richiede in genere più tempo, spesso legato all'ufficio giudiziario competente. Dopo la valutazione iniziale forniamo un quadro indicativo.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Serve sempre andare in tribunale?</summary>
+        <p>No. Molti casi vengono valutati prima in via stragiudiziale, con solleciti o diffide puntuali. Le azioni giudiziali si prendono in considerazione solo quando necessario e quando hanno senso rispetto al caso concreto.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Posso chiedere una valutazione anche per un importo contenuto?</summary>
+        <p>Si. Anche un credito di importo non elevato può meritare una verifica, soprattutto per capire convenienza, rischi e proporzione dei costi rispetto al possibile recupero.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Quali documenti servono per iniziare?</summary>
+        <p>Di solito sono utili contratto, fatture, comunicazioni intercorse (soprattutto se contengono riconoscimenti di debito), solleciti già inviati e ogni documento che dimostri l'esistenza del credito e la sua scadenza. Se qualcosa manca, lo verifichiamo insieme.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Riceverò una risposta rapida dopo il contatto?</summary>
+        <p>L'obiettivo è dare un primo riscontro entro 24 ore lavorative, con una valutazione generale della situazione e delle possibili opzioni di intervento.</p>
+      </details>
+    </div>
   </div>
 </div>
 
@@ -703,6 +896,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <div class="disclaimer">
   <p>La presente pagina ha finalità esclusivamente informativa sull'attività professionale dell'Avv. Matteo Tremolada. Le informazioni non costituiscono in alcun modo garanzia di risultato né sostituiscono una consulenza personalizzata. Il rapporto professionale con il cliente si instaura solo a seguito di conferimento formale di incar
+
+  </p>
+</div>
 
 	  <!-- ===== COOKIE BANNER ===== -->
 <style>
@@ -812,10 +1008,92 @@ localStorage.setItem("cookieConsent","rejected");
 document.getElementById("cookieBanner").style.display="none";
 }
 
-window.onload=function(){
+document.addEventListener("DOMContentLoaded", function () {
 var consent=localStorage.getItem("cookieConsent");
 if(consent){
 document.getElementById("cookieBanner").style.display="none";
 }
-};
+
+var heroCard=document.querySelector(".hero-card");
+if(heroCard){
+window.setTimeout(function(){
+heroCard.classList.add("is-ready");
+},150);
+}
+
+var revealItems=document.querySelectorAll("[data-reveal]");
+if("IntersectionObserver" in window && revealItems.length){
+var revealObserver=new IntersectionObserver(function(entries,observer){
+entries.forEach(function(entry){
+if(entry.isIntersecting){
+entry.target.classList.add("is-visible");
+observer.unobserve(entry.target);
+}
+});
+},{threshold:0.18,rootMargin:"0px 0px -40px 0px"});
+
+revealItems.forEach(function(item){
+revealObserver.observe(item);
+});
+}else{
+revealItems.forEach(function(item){
+item.classList.add("is-visible");
+});
+}
+
+var counters=document.querySelectorAll("[data-count]");
+if("IntersectionObserver" in window && counters.length){
+var counterObserver=new IntersectionObserver(function(entries,observer){
+entries.forEach(function(entry){
+if(!entry.isIntersecting){return;}
+var el=entry.target;
+var end=Number(el.getAttribute("data-count"))||0;
+var suffix=el.getAttribute("data-suffix")||"";
+var duration=1400;
+var startTime=null;
+
+function step(timestamp){
+if(!startTime){startTime=timestamp;}
+var progress=Math.min((timestamp-startTime)/duration,1);
+el.textContent=Math.floor(progress*end)+suffix;
+if(progress<1){
+window.requestAnimationFrame(step);
+}else{
+el.textContent=end+suffix;
+}
+}
+
+window.requestAnimationFrame(step);
+observer.unobserve(el);
+});
+},{threshold:0.5});
+
+counters.forEach(function(counter){
+counterObserver.observe(counter);
+});
+}else{
+counters.forEach(function(counter){
+var endValue=counter.getAttribute("data-count")||"0";
+var suffixValue=counter.getAttribute("data-suffix")||"";
+counter.textContent=endValue+suffixValue;
+});
+}
+
+var mobileStickyCta=document.getElementById("mobileStickyCta");
+if(mobileStickyCta){
+function toggleStickyCta(){
+if(window.innerWidth<=780 && window.scrollY>300){
+mobileStickyCta.classList.add("is-visible");
+}else{
+mobileStickyCta.classList.remove("is-visible");
+}
+}
+
+toggleStickyCta();
+window.addEventListener("scroll",toggleStickyCta,{passive:true});
+window.addEventListener("resize",toggleStickyCta);
+}
+});
 </script>
+</body>
+</html>
