@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guide sulla Contrattualistica d'Impresa | Studio Legale Tremolada</title>
+<meta name="description" content="Guide pratiche su contratti commerciali, NDA, limitazioni di responsabilità, proprietà intellettuale e accordi tra soci. Avv. Matteo Tremolada — Monza, Milano, tutta Italia.">
+<meta name="author" content="Avv. Matteo Tremolada">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://contrattualistica.tremolada.it/guide-contrattualistica.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sand:#F5F1EA;--sand2:#EDE7DA;--white:#fff;
+  --ink:#181715;--ink70:#57534E;--ink40:#A8A29E;
+  --burg:#6B2C2C;--burg2:#8B3A3A;--burg-soft:#F5E8E8;--burg-bg:#FBF1F1;
+  --gold:#B5882E;--gold-soft:#F5EDD8;
+  --green:#2D6A4F;--green-soft:#D8EDDF;
+  --border:#E5DFD3;--border2:#D4CCB8;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
+  --w:1140px;--ease:cubic-bezier(.22,.68,0,1.2)
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--sand);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;font-weight:400}
+
+/* PROG */
+#prog{position:fixed;top:0;left:0;height:2px;width:0;background:var(--burg);z-index:9999;transition:width .1s}
+
+/* ANN */
+.ann{background:var(--ink);border-bottom:.5px solid rgba(107,44,44,.4);padding:10px 24px;display:flex;align-items:center;justify-content:center;gap:18px;font-size:12.5px;color:rgba(255,255,255,.72);position:relative}
+.ann-dot{width:6px;height:6px;border-radius:50%;background:#62D391;flex-shrink:0;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
+.ann strong{color:#E8C875;font-weight:500}
+.ann a{color:#E8C875;text-decoration:none;border-bottom:.5px solid rgba(232,200,117,.4)}
+.ann a:hover{border-bottom-color:#E8C875}
+.ann-x{position:absolute;right:20px;background:none;border:none;color:rgba(255,255,255,.25);cursor:pointer;font-size:18px;padding:4px;line-height:1}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:500;background:rgba(245,241,234,.96);backdrop-filter:blur(14px);border-bottom:.5px solid var(--border);height:64px;padding:0 36px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-family:var(--serif);font-size:21px;font-weight:500;color:var(--ink);text-decoration:none;letter-spacing:-.015em;display:flex;align-items:center;gap:10px}
+.brand-mark{width:30px;height:30px;border-radius:50%;background:var(--burg);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;font-family:var(--sans);flex-shrink:0}
+.brand-sub{font-size:11px;color:var(--ink40);letter-spacing:.08em;text-transform:uppercase;font-family:var(--sans);margin-top:1px}
+.nav-links{display:flex;align-items:center;gap:2px;list-style:none}
+.nav-links a{font-size:13px;color:var(--ink70);text-decoration:none;padding:7px 13px;border-radius:6px;transition:color .15s,background .15s;font-weight:400}
+.nav-links a:hover{color:var(--ink);background:var(--sand2)}
+.nav-links a.active{color:var(--burg);background:var(--burg-soft);font-weight:500}
+.nav-cta{background:var(--ink)!important;color:var(--white)!important;font-weight:500!important;font-size:13px!important;padding:8px 16px!important}
+.nav-cta:hover{background:var(--burg)!important}
+.nav-ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px}
+.nav-ham span{display:block;width:20px;height:1.5px;background:var(--ink);border-radius:2px}
+.nav-drawer{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--sand);z-index:499;padding:28px 24px;flex-direction:column}
+.nav-drawer.open{display:flex}
+.nav-drawer a{color:var(--ink);text-decoration:none;font-size:18px;font-family:var(--serif);padding:18px 0;border-bottom:.5px solid var(--border)}
+
+/* HERO */
+.page-hero{background:var(--ink);position:relative;overflow:hidden;padding:0}
+.page-hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(107,44,44,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(107,44,44,.04) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 90% 80% at 50% 50%,black 30%,transparent 100%);pointer-events:none}
+.page-hero::after{content:"";position:absolute;pointer-events:none;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(107,44,44,.1) 0%,transparent 70%);top:-180px;right:-80px}
+.hero-inner{position:relative;z-index:1;max-width:var(--w);margin:0 auto;padding:80px 36px 72px;display:grid;grid-template-columns:3fr 2fr;gap:60px;align-items:center}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:20px;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(232,200,117,.85)}
+.hero-eyebrow::before,.hero-eyebrow::after{content:"";display:block;height:1px;background:rgba(232,200,117,.5)}
+.hero-eyebrow::before{width:24px}.hero-eyebrow::after{width:12px}
+.page-hero h1{font-family:var(--serif);font-size:clamp(38px,4.8vw,64px);font-weight:400;color:var(--white);line-height:1.05;letter-spacing:-.03em;margin-bottom:18px}
+.page-hero h1 i{font-style:italic;color:transparent;-webkit-text-stroke:1.5px #E8C875;font-weight:300}
+.hero-desc{font-size:17px;font-weight:300;color:rgba(255,255,255,.65);line-height:1.75;max-width:480px;margin-bottom:8px}
+.hero-sub{font-size:13.5px;color:rgba(255,255,255,.35);line-height:1.65;max-width:440px;margin-bottom:32px;font-style:italic}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn-dark{background:var(--sand);color:var(--burg);font-weight:600;font-size:14px;padding:13px 26px;border-radius:6px;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:background .15s}
+.btn-dark:hover{background:var(--white)}
+.btn-ghost{background:transparent;color:rgba(255,255,255,.6);font-size:14px;padding:12px 20px;border-radius:6px;border:.5px solid rgba(255,255,255,.2);text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .15s}
+.btn-ghost:hover{color:rgba(255,255,255,.95);border-color:rgba(255,255,255,.45);background:rgba(255,255,255,.06)}
+
+/* Hero aside */
+.hero-aside{background:rgba(255,255,255,.03);border:.5px solid rgba(107,44,44,.3);border-radius:14px;padding:28px;box-shadow:0 16px 48px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.04)}
+.hero-aside-label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(232,200,117,.7);font-weight:500;margin-bottom:18px}
+.hai-item{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:.5px solid rgba(255,255,255,.05)}
+.hai-item:last-child{border-bottom:none}
+.hai-ico{width:34px;height:34px;border-radius:7px;background:rgba(107,44,44,.2);border:.5px solid rgba(107,44,44,.3);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.hai-txt strong{display:block;font-size:13px;color:rgba(255,255,255,.85);font-weight:500;margin-bottom:3px}
+.hai-txt span{font-size:12px;color:rgba(255,255,255,.42);line-height:1.55}
+
+/* TRUST STRIP */
+.trust-strip{background:var(--white);border-bottom:2px solid var(--burg)}
+.ts-inner{max-width:var(--w);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+.ts-item{padding:18px 16px;border-right:.5px solid var(--border);display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;transition:background .2s}
+.ts-item:last-child{border-right:none}
+.ts-item:hover{background:var(--burg-bg)}
+.ts-n{font-family:var(--serif);font-size:26px;font-weight:500;color:var(--burg);line-height:1;letter-spacing:-.01em}
+.ts-l{font-size:11px;color:var(--ink40);letter-spacing:.04em}
+
+/* BREADCRUMB */
+.breadcrumb{background:var(--sand2);border-bottom:.5px solid var(--border);padding:12px 36px}
+.breadcrumb-inner{max-width:var(--w);margin:0 auto;font-size:13px;color:var(--ink40)}
+.breadcrumb-inner a{color:var(--burg);text-decoration:none}
+.breadcrumb-inner a:hover{text-decoration:underline}
+.breadcrumb-inner span{margin:0 6px;opacity:.5}
+
+/* SHARED */
+.wrap{max-width:var(--w);margin:0 auto;padding:0 36px}
+.kicker{font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--burg);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.kicker::before{content:"";display:block;width:18px;height:1px;background:var(--burg)}
+.sec-h{font-family:var(--serif);font-size:clamp(28px,3.5vw,44px);font-weight:400;line-height:1.1;letter-spacing:-.02em;color:var(--ink)}
+.sec-h i{font-style:italic;color:var(--burg);font-weight:300}
+[data-r]{opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.22,.68,0,1),transform .6s cubic-bezier(.22,.68,0,1)}
+[data-r].v{opacity:1;transform:none}
+[data-r][data-d="1"]{transition-delay:.1s}[data-r][data-d="2"]{transition-delay:.2s}[data-r][data-d="3"]{transition-delay:.3s}[data-r][data-d="4"]{transition-delay:.4s}[data-r][data-d="5"]{transition-delay:.5s}
+
+/* BLOG SECTION */
+.blog-section{padding:80px 0 96px}
+.blog-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:16px}
+.blog-header-right{font-size:15px;color:var(--ink70);max-width:380px;line-height:1.7;font-weight:300}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+
+/* Featured card */
+.card-featured{grid-column:1/-1;display:grid;grid-template-columns:2fr 3fr;border-radius:14px;overflow:hidden;border:.5px solid var(--border);background:var(--white);box-shadow:0 4px 24px rgba(24,23,21,.05);transition:box-shadow .25s,transform .25s var(--ease),border-color .25s}
+.card-featured:hover{box-shadow:0 14px 48px rgba(24,23,21,.09);transform:translateY(-3px);border-color:rgba(107,44,44,.25)}
+.cf-visual{background:var(--ink);padding:40px 36px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.cf-visual::before{content:"";position:absolute;bottom:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(107,44,44,.15) 0%,transparent 70%)}
+.cf-tag{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:#E8C875;border:.5px solid rgba(232,200,117,.3);padding:4px 12px;border-radius:20px;margin-bottom:auto;width:fit-content}
+.cf-bignum{font-family:var(--serif);font-size:84px;font-weight:500;color:rgba(255,255,255,.04);line-height:1;position:absolute;bottom:16px;left:24px;letter-spacing:-.03em}
+.cf-body{padding:40px 38px;display:flex;flex-direction:column;justify-content:center}
+.cf-meta{display:flex;align-items:center;gap:16px;margin-bottom:14px}
+.cf-meta span{font-size:12px;color:var(--ink40)}
+.cf-badge{background:var(--burg-soft);color:var(--burg);font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px}
+.cf-title{font-family:var(--serif);font-size:clamp(20px,2.2vw,28px);font-weight:500;color:var(--ink);line-height:1.25;margin-bottom:12px;letter-spacing:-.01em}
+.cf-desc{font-size:14.5px;color:var(--ink70);line-height:1.75;margin-bottom:22px;font-weight:300}
+.cf-link{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--burg);text-decoration:none;transition:color .15s,gap .2s}
+.cf-link:hover{color:var(--burg2);gap:13px}
+.cf-link svg{transition:transform .2s var(--ease)}
+.cf-link:hover svg{transform:translateX(3px)}
+
+/* Regular card */
+.card{background:var(--white);border:.5px solid var(--border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .25s,transform .25s var(--ease),border-color .25s}
+.card:hover{box-shadow:0 12px 40px rgba(24,23,21,.08);transform:translateY(-4px);border-color:rgba(107,44,44,.22)}
+.card-top{background:var(--ink);padding:24px 24px 20px;position:relative;overflow:hidden}
+.card-top::after{content:"";position:absolute;bottom:-24px;right:-24px;width:100px;height:100px;border-radius:50%;background:radial-gradient(circle,rgba(107,44,44,.12) 0%,transparent 70%)}
+.card-tag{display:inline-flex;align-items:center;font-size:10.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#E8C875;border:.5px solid rgba(232,200,117,.25);padding:4px 10px;border-radius:20px}
+.card-body{padding:22px 24px 26px;flex:1;display:flex;flex-direction:column}
+.card-meta{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--ink40);margin-bottom:12px}
+.card h2{font-family:var(--serif);font-size:19px;font-weight:500;line-height:1.3;color:var(--ink);margin-bottom:10px;letter-spacing:-.005em}
+.card p{font-size:13.5px;color:var(--ink70);line-height:1.7;flex:1;margin-bottom:18px;font-weight:300}
+.card-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--burg);text-decoration:none;transition:color .15s,gap .2s}
+.card-link:hover{color:var(--burg2);gap:10px}
+.card-link svg{transition:transform .2s var(--ease)}
+.card-link:hover svg{transform:translateX(3px)}
+.coming-soon{font-size:12px;color:var(--ink40);font-style:italic;margin-top:auto;display:flex;align-items:center;gap:6px}
+.coming-soon::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--ink40);flex-shrink:0}
+
+/* CTA BAND */
+.cta-band{background:var(--burg);padding:80px 36px;text-align:center;position:relative;overflow:hidden}
+.cta-band::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 100% at 50% 100%,rgba(0,0,0,.12) 0%,transparent 70%);pointer-events:none}
+.cta-inner{position:relative;max-width:680px;margin:0 auto}
+.cta-band .kicker{justify-content:center;color:rgba(255,255,255,.6)}
+.cta-band .kicker::before{background:rgba(255,255,255,.4)}
+.cta-h{font-family:var(--serif);font-size:clamp(30px,4vw,48px);font-weight:400;line-height:1.06;letter-spacing:-.025em;color:var(--white);margin-bottom:14px}
+.cta-h i{font-style:italic;color:#F5D89C;font-weight:300}
+.cta-p{font-size:16px;color:rgba(255,255,255,.68);max-width:500px;margin:0 auto 32px;line-height:1.75;font-weight:300}
+.cta-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn-cream{background:var(--sand);color:var(--burg);border:none;border-radius:6px;padding:13px 26px;font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background .15s}
+.btn-cream:hover{background:var(--white)}
+.btn-ghost-cream{background:transparent;color:var(--white);border:.5px solid rgba(255,255,255,.35);border-radius:6px;padding:12px 22px;font-size:14px;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .15s}
+.btn-ghost-cream:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.6)}
+.cta-micro{margin-top:18px;font-size:11.5px;color:rgba(255,255,255,.35);display:flex;justify-content:center;gap:18px;flex-wrap:wrap}
+.cta-micro span{display:flex;align-items:center;gap:5px}
+
+/* FOOTER */
+footer{background:var(--ink);color:var(--white)}
+.foot-main{max-width:var(--w);margin:0 auto;padding:56px 36px;display:grid;grid-template-columns:2.4fr 1fr 1fr;gap:56px}
+.foot-brand-name{font-family:var(--serif);font-size:22px;font-weight:500;color:var(--white);margin-bottom:8px;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
+.foot-brand-name .brand-mark{background:var(--burg);flex-shrink:0}
+.foot-brand p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.7;margin-top:12px}
+.foot-brand a{color:rgba(255,255,255,.4);text-decoration:none}
+.foot-brand a:hover{color:rgba(255,255,255,.85)}
+.foot-col h4{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:14px;font-weight:500}
+.foot-col a{display:block;font-size:13px;color:rgba(255,255,255,.42);text-decoration:none;margin-bottom:10px;transition:color .15s}
+.foot-col a:hover{color:rgba(255,255,255,.9)}
+.foot-bot{border-top:.5px solid rgba(255,255,255,.07);padding:18px 36px;max-width:var(--w);margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.foot-bot p{font-size:11.5px;color:rgba(255,255,255,.28)}
+.foot-disc{border-top:.5px solid rgba(255,255,255,.04);padding:18px 36px}
+.foot-disc p{max-width:var(--w);margin:0 auto;font-size:11px;color:rgba(255,255,255,.2);line-height:1.7}
+
+/* WA */
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:490;display:flex;align-items:center;gap:10px;background:#22C55E;color:var(--white);padding:12px 20px;border-radius:50px;font-size:14px;font-weight:500;text-decoration:none;box-shadow:0 4px 20px rgba(34,197,94,.35);transition:transform .15s,box-shadow .15s}
+.wa-float:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(34,197,94,.5)}
+.wa-float svg{width:20px;height:20px;flex-shrink:0;fill:#fff}
+.wa-lbl{white-space:nowrap}
+
+/* Mobile bar */
+.mob-bar{position:fixed;left:12px;right:12px;bottom:12px;z-index:489;display:none;gap:8px;opacity:0;transform:translateY(16px);transition:opacity .25s,transform .25s}
+.mob-bar.show{opacity:1;transform:none}
+.mob-bar a{flex:1;text-align:center;text-decoration:none;padding:13px;border-radius:50px;font-weight:600;font-size:14px;box-shadow:0 4px 16px rgba(0,0,0,.16)}
+.mb-call{background:var(--ink);color:var(--white)}
+.mb-wa{background:#22C55E;color:var(--white)}
+
+/* Cookie */
+.ck{position:fixed;bottom:0;left:0;right:0;z-index:1001;background:var(--white);border-top:.5px solid var(--border);padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.ck p{font-size:13px;color:var(--ink70);max-width:680px}
+.ck p a{color:var(--burg)}
+.ck-btns{display:flex;gap:8px;flex-shrink:0}
+.ck-btn{font-family:var(--sans);font-size:13px;padding:9px 18px;border-radius:6px;cursor:pointer;border:.5px solid var(--border);font-weight:500}
+.ck-ok{background:var(--ink);color:var(--white);border-color:var(--ink)}
+
+@media(max-width:980px){
+  nav{padding:0 20px}.nav-links{display:none}.nav-ham{display:flex}
+  .ann{padding:10px 16px;font-size:12px;gap:12px}
+  .hero-inner{grid-template-columns:1fr;gap:32px;padding:56px 20px 48px}
+  .hero-aside{display:none}
+  .trust-strip,.breadcrumb{padding-left:20px;padding-right:20px}
+  .blog-section{padding:56px 0 72px}
+  .wrap{padding:0 20px}
+  .card-featured{grid-column:auto;grid-template-columns:1fr}
+  .cf-visual{padding:28px;min-height:160px}
+  .cf-body{padding:28px}
+  .blog-grid{grid-template-columns:1fr}
+  .cta-band{padding:64px 20px}
+  .foot-main{grid-template-columns:1fr;padding:40px 20px;gap:32px}
+  .foot-bot,.foot-disc{padding:16px 20px}
+  .wa-lbl{display:none}.wa-float{padding:12px 13px}
+  .mob-bar{display:flex}
+  body{padding-bottom:76px}
+}
+@media(max-width:600px){
+  .ts-inner{grid-template-columns:1fr 1fr}
+  .blog-header{flex-direction:column;align-items:flex-start}
+  .cta-actions{flex-direction:column;align-items:center}
+  .ck-btns{width:100%}.ck-btn{flex:1}
+}
+</style>
+</head>
+<body>
+
+<div id="prog"></div>
+
+<a href="https://wa.me/393934411700?text=Buongiorno%20Avv.%20Tremolada%2C%20ho%20letto%20le%20guide%20sulla%20contrattualistica%20e%20vorrei%20una%20consulenza." class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="wa-lbl">WhatsApp</span>
+</a>
+
+<div class="mob-bar" id="mobBar">
+  <a href="tel:+393934411700" class="mb-call">📞 Chiama</a>
+  <a href="https://wa.me/393934411700?text=Buongiorno%20Avv.%20Tremolada%2C%20vorrei%20una%20consulenza%20contrattuale." class="mb-wa" target="_blank" rel="noopener">💬 WhatsApp</a>
+</div>
+
+<!-- ANN -->
+<div class="ann" id="ann">
+  <div class="ann-dot"></div>
+  <strong>Prima analisi del rischio contrattuale gratuita</strong> — Risposta entro 24 ore ·
+  <a href="contract_audit_landing.html#audit">Avvia l'audit →</a>
+  <button class="ann-x" onclick="document.getElementById('ann').style.display='none'" aria-label="Chiudi">×</button>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="contract_audit_landing.html" class="brand">
+    <span class="brand-mark">T</span>
+    <span>
+      <span style="display:block;line-height:1">Tremolada</span>
+      <span class="brand-sub">Studio Legale</span>
+    </span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="contract_audit_landing.html#audit">Contract Audit</a></li>
+    <li><a href="contract_audit_landing.html#servizi">Servizi</a></li>
+    <li><a href="contract_audit_landing.html#tariffe">Tariffe</a></li>
+    <li><a href="contract_audit_landing.html#avvocato">Lo studio</a></li>
+    <li><a href="guide-contrattualistica.html" class="active">Guide</a></li>
+    <li><a href="https://recuperocreditiaziende.it" target="_blank" rel="noopener">Recupero crediti</a></li>
+    <li><a href="https://recuperocreditiaziende.it/sfratti.html" target="_blank" rel="noopener">Sfratti</a></li>
+    <li><a href="contract_audit_landing.html#audit" class="nav-cta">Avvia analisi</a></li>
+  </ul>
+  <button class="nav-ham" onclick="document.getElementById('navD').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-drawer" id="navD">
+  <a href="contract_audit_landing.html#audit" onclick="document.getElementById('navD').classList.remove('open')">Contract Audit</a>
+  <a href="contract_audit_landing.html#servizi" onclick="document.getElementById('navD').classList.remove('open')">Servizi</a>
+  <a href="contract_audit_landing.html#tariffe" onclick="document.getElementById('navD').classList.remove('open')">Tariffe</a>
+  <a href="contract_audit_landing.html#avvocato" onclick="document.getElementById('navD').classList.remove('open')">Lo studio</a>
+  <a href="guide-contrattualistica.html" onclick="document.getElementById('navD').classList.remove('open')">Guide</a>
+  <a href="https://recuperocreditiaziende.it" target="_blank" rel="noopener" onclick="document.getElementById('navD').classList.remove('open')">Recupero crediti</a>
+  <a href="https://recuperocreditiaziende.it/sfratti.html" target="_blank" rel="noopener" onclick="document.getElementById('navD').classList.remove('open')">Sfratti</a>
+</div>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Studio Legale Tremolada · Guide pratiche</div>
+      <h1>Guide per chi vuole capire<br>cosa <i>firma davvero.</i></h1>
+      <p class="hero-desc">Approfondimenti legali concreti per imprenditori e professionisti che vogliono capire come funzionano i contratti — prima di firmarli.</p>
+      <p class="hero-sub">Linguaggio accessibile. Niente promesse. Solo informazioni utili per prendere decisioni consapevoli.</p>
+      <div class="hero-actions">
+        <a href="#guide-grid" class="btn-dark">Leggi le guide</a>
+        <a href="contract_audit_landing.html#audit" class="btn-ghost">Avvia il Contract Audit →</a>
+      </div>
+    </div>
+    <div class="hero-aside">
+      <div class="hero-aside-label">Cosa trovi in questa sezione</div>
+      <div class="hai-item">
+        <div class="hai-ico">📝</div>
+        <div class="hai-txt">
+          <strong>Guide operative</strong>
+          <span>Contratti commerciali, NDA, responsabilità, proprietà intellettuale: i meccanismi spiegati con chiarezza.</span>
+        </div>
+      </div>
+      <div class="hai-item">
+        <div class="hai-ico">🔍</div>
+        <div class="hai-txt">
+          <strong>Orientamento prima di firmare</strong>
+          <span>Ogni articolo serve a capire cosa aspettarsi, quali clausole contano davvero e dove si annidano i rischi.</span>
+        </div>
+      </div>
+      <div class="hai-item">
+        <div class="hai-ico">⚖️</div>
+        <div class="hai-txt">
+          <strong>Linguaggio chiaro, approccio legale</strong>
+          <span>Nessun tecnicismo inutile. Solo le informazioni che servono per decidere con consapevolezza.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip" data-r>
+  <div class="ts-inner">
+    <div class="ts-item"><div class="ts-n">500+</div><div class="ts-l">Contratti redatti</div></div>
+    <div class="ts-item"><div class="ts-n">10+</div><div class="ts-l">Anni di attività</div></div>
+    <div class="ts-item"><div class="ts-n">4.9</div><div class="ts-l">Valutazione ★★★★★</div></div>
+    <div class="ts-item"><div class="ts-n">24h</div><div class="ts-l">Prima risposta</div></div>
+  </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="contract_audit_landing.html">Contrattualistica</a>
+    <span>›</span>
+    Guide
+  </div>
+</div>
+
+<!-- BLOG GRID -->
+<section class="blog-section" id="guide-grid">
+  <div class="wrap">
+    <div class="blog-header" data-r>
+      <div>
+        <div class="kicker">Approfondimenti legali</div>
+        <h2 class="sec-h">Guide per <i>contratti che reggono.</i></h2>
+      </div>
+      <p class="blog-header-right">Contenuti aggiornati con un taglio pratico, pensati per chi deve prendere decisioni concrete — non solo per informarsi.</p>
+    </div>
+
+    <div class="blog-grid">
+
+      <!-- FEATURED -->
+      <article class="card-featured" data-r>
+        <div class="cf-visual">
+          <div class="cf-tag">PMI &amp; Startup · Guida completa</div>
+          <div class="cf-bignum">01</div>
+        </div>
+        <div class="cf-body">
+          <div class="cf-meta">
+            <span>Maggio 2026</span>
+            <span class="cf-badge">10 min di lettura</span>
+          </div>
+          <div class="cf-title">Contratti d'impresa: gli errori più comuni (e come evitarli)</div>
+          <p class="cf-desc">Clausole mancanti, modelli scaricati online, accordi verbali: gli errori contrattuali delle PMI sono spesso gli stessi — e quasi sempre evitabili. In questa guida analizziamo i casi più frequenti, cosa può andare storto e quali accorgimenti concreti fanno la differenza prima di firmare.</p>
+          <a href="/contratti-impresa-errori-pmi" class="cf-link">
+            Leggi la guida
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- CARD 2 -->
+      <article class="card" data-r data-d="1">
+        <div class="card-top">
+          <div class="card-tag">NDA · Riservatezza</div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span>Prossimamente</span></div>
+          <h2>NDA e accordi di riservatezza: cosa proteggono davvero e come vanno redatti</h2>
+          <p>Non tutti gli accordi di riservatezza sono uguali. Cosa distingue un NDA efficace da un modello standard, cosa deve contenere e quando richiederlo prima di condividere qualsiasi informazione sensibile.</p>
+          <a href="/nda-accordi-riservatezza-impresa" class="card-link">Leggi la guida <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </article>
+
+      <!-- CARD 3 -->
+      <article class="card" data-r data-d="2">
+        <div class="card-top">
+          <div class="card-tag">Responsabilità</div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span>Prossimamente</span></div>
+          <h2>Clausole di limitazione della responsabilità: come funzionano e perché contano</h2>
+          <p>Una clausola mal calibrata può vanificare anni di lavoro. Cosa sono, quando sono valide, come si negoziano e come evitare di accettare quelle squilibrate proposte dalla controparte.</p>
+          <a href="/clausole-limitazione-responsabilita-contratti" class="card-link">Leggi la guida <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </article>
+
+      <article class="card" data-r data-d="3">
+        <div class="card-top">
+          <div class="card-tag">Contratti internazionali</div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span>Prossimamente</span></div>
+          <h2>Contratti con fornitori e clienti esteri: legge applicabile, foro e clausole arbitrali</h2>
+          <p>Cosa succede se non si specifica la giurisdizione? Una guida per chi opera con controparti straniere — UE ed extra-UE — e vuole evitare sorprese costose in caso di controversia.</p>
+          <a href="/contratti-internazionali-pmi-export" class="card-link">Leggi la guida <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </article>
+
+      <article class="card" data-r data-d="4">
+        <div class="card-top">
+          <div class="card-tag">Proprietà intellettuale</div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span>Prossimamente</span></div>
+          <h2>Proprietà intellettuale nei contratti d'impresa: chi possiede cosa e come tutelarlo</h2>
+          <p>Se la tua azienda produce o commissiona software, design o contenuti, la titolarità della PI va regolata per iscritto. Cosa succede in assenza di accordo e i casi più frequenti di contenzioso.</p>
+          <a href="/proprieta-intellettuale-contratti-impresa" class="card-link">Leggi la guida <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </article>
+
+      <article class="card" data-r data-d="5">
+        <div class="card-top">
+          <div class="card-tag">Audit contrattuale</div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span>Prossimamente</span></div>
+          <h2>Come si fa un audit contrattuale: quando serve e cosa analizza</h2>
+          <p>Un audit contrattuale non è solo per le grandi aziende. Cos'è, quando conviene farlo, cosa viene analizzato e quali rischi concreti aiuta a prevenire prima che diventino contenziosi.</p>
+          <a href="/audit-contrattuale-quando-serve-cosa-analizza" class="card-link">Leggi la guida <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band" data-r>
+  <div class="wrap">
+    <div class="cta-inner">
+      <div class="kicker">Serve una valutazione concreta?</div>
+      <h2 class="cta-h">I tuoi contratti ti<br>proteggono <i>davvero?</i></h2>
+      <p class="cta-p">Le guide offrono orientamento generale. Ogni situazione è diversa. Inizia dal Contract Audit gratuito o contattaci direttamente per un'analisi del tuo caso specifico.</p>
+      <div class="cta-actions">
+        <a href="contract_audit_landing.html#audit" class="btn-cream">Avvia il Contract Audit →</a>
+        <a href="https://wa.me/393934411700?text=Buongiorno%20Avv.%20Tremolada%2C%20ho%20letto%20le%20guide%20sulla%20contrattualistica%20e%20vorrei%20una%20consulenza." class="btn-ghost-cream" target="_blank" rel="noopener">💬 WhatsApp</a>
+        <a href="tel:+393934411700" class="btn-ghost-cream">📞 Chiama</a>
+      </div>
+      <div class="cta-micro">
+        <span>🆓 Audit gratuito</span>
+        <span>⏱ Risposta in 24h</span>
+        <span>📋 Nessun impegno</span>
+        <span>🔒 Riservatezza totale</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-main">
+    <div class="foot-brand">
+      <div class="foot-brand-name"><span class="brand-mark">MT</span> Tremolada</div>
+      <p>Studio Legale Avv. Matteo Tremolada — Contrattualistica d'impresa, recupero crediti, sfratti.<br>Via D'Azeglio 8 · 20900 Monza (MB) · Foro di Monza<br>P.IVA 10173930966</p>
+      <p style="margin-top:10px"><a href="mailto:avv.tremolada@gmail.com">avv.tremolada@gmail.com</a> · <a href="tel:+393934411700">Chiama</a></p>
+    </div>
+    <div class="foot-col">
+      <h4>Servizi</h4>
+      <a href="contract_audit_landing.html#servizi">Contrattualistica</a>
+      <a href="contract_audit_landing.html#tariffe">Tariffe</a>
+      <a href="https://recuperocreditiaziende.it" target="_blank" rel="noopener">Recupero crediti</a>
+      <a href="https://recuperocreditiaziende.it/sfratti.html" target="_blank" rel="noopener">Sfratti</a>
+    </div>
+    <div class="foot-col">
+      <h4>Studio</h4>
+      <a href="contract_audit_landing.html#avvocato">L'avvocato</a>
+      <a href="contract_audit_landing.html#audit">Contract Audit</a>
+      <a href="guide-contrattualistica.html">Guide</a>
+      <a href="contract_audit_landing.html#faq">FAQ</a>
+      <a href="/privacy.html">Privacy</a>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <p>© 2026 Studio Legale Tremolada · P.IVA 10173930966</p>
+    <p>Foro di Monza · Lombardia</p>
+  </div>
+  <div class="foot-disc">
+    <p>La presente pagina ha finalità esclusivamente informativa. Le informazioni non costituiscono garanzia di risultato né sostituiscono una consulenza personalizzata. Il rapporto professionale si instaura solo a seguito di conferimento formale di incarico.</p>
+  </div>
+</footer>
+
+<div class="ck" id="ckb">
+  <p>Utilizziamo cookie tecnici e, previo consenso, analitici. <a href="/privacy.html">Privacy Policy</a>.</p>
+  <div class="ck-btns">
+    <button class="ck-btn" onclick="ckR()">Rifiuta</button>
+    <button class="ck-btn ck-ok" onclick="ckA()">Accetta</button>
+  </div>
+</div>
+
+<script>
+function ckA(){localStorage.setItem('ck','1');document.getElementById('ckb').style.display='none'}
+function ckR(){localStorage.setItem('ck','0');document.getElementById('ckb').style.display='none'}
+if(localStorage.getItem('ck'))document.getElementById('ckb').style.display='none';
+
+window.addEventListener('scroll',function(){var s=document.documentElement,p=(s.scrollTop/(s.scrollHeight-s.clientHeight))*100;document.getElementById('prog').style.width=p+'%'},{passive:true});
+
+(function(){var b=document.getElementById('mobBar');function u(){if(window.innerWidth<=980&&window.scrollY>300)b.classList.add('show');else b.classList.remove('show')}window.addEventListener('scroll',u,{passive:true});window.addEventListener('resize',u,{passive:true});u()})();
+
+(function(){var els=document.querySelectorAll('[data-r]');if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('v')});return}var o=new IntersectionObserver(function(ents,obs){ents.forEach(function(e){if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -30px 0px'});els.forEach(function(e){o.observe(e)})})();
+</script>
+</body>
+</html>
