@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contract Audit — Avv. Tremolada</title>
+<meta name="description" content="Diagnostico gratuito del rischio contrattuale della tua impresa. 5 domande, 2 minuti, report personalizzato. Avv. Tremolada — Monza.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sand:#F5F1EA;--sand2:#EDE7DA;--white:#fff;
+  --ink:#181715;--ink70:#57534E;--ink40:#A8A29E;
+  --burg:#6B2C2C;--burg2:#8B3A3A;--burg-soft:#F5E8E8;--burg-bg:#FBF1F1;
+  --gold:#B5882E;--gold-soft:#F5EDD8;
+  --green:#2D6A4F;--green-soft:#D8EDDF;
+  --amber:#C77E1E;--amber-soft:#FAEBD3;
+  --red:#A03030;--red-soft:#F5DDDD;
+  --border:#E5DFD3;--border2:#D4CCB8;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
+  --w:1140px;--ease:cubic-bezier(.22,.68,0,1.2)
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--sand);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;font-weight:400}
+
+/* PROG */
+#prog{position:fixed;top:0;left:0;height:2px;width:0;background:var(--burg);z-index:9999;transition:width .1s}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:500;background:rgba(245,241,234,.94);backdrop-filter:blur(14px);border-bottom:.5px solid var(--border);height:64px;padding:0 36px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-family:var(--serif);font-size:21px;font-weight:500;color:var(--ink);text-decoration:none;letter-spacing:-.015em;display:flex;align-items:center;gap:10px}
+.brand-mark{width:30px;height:30px;border-radius:50%;background:var(--burg);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;font-family:var(--sans)}
+.brand-sub{font-size:11px;color:var(--ink40);letter-spacing:.08em;text-transform:uppercase;font-family:var(--sans);margin-top:1px}
+.nav-links{display:flex;align-items:center;gap:2px;list-style:none}
+.nav-links a{font-size:13px;color:var(--ink70);text-decoration:none;padding:7px 13px;border-radius:6px;transition:color .15s,background .15s;font-weight:400}
+.nav-links a:hover{color:var(--ink);background:var(--sand2)}
+.nav-cta{background:var(--ink)!important;color:var(--white)!important;font-weight:500!important;font-size:13px!important;padding:8px 16px!important}
+.nav-cta:hover{background:var(--burg)!important}
+.nav-ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px}
+.nav-ham span{display:block;width:20px;height:1.5px;background:var(--ink);border-radius:2px}
+.nav-drawer{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--sand);z-index:499;padding:28px 24px;flex-direction:column}
+.nav-drawer.open{display:flex}
+.nav-drawer a{color:var(--ink);text-decoration:none;font-size:18px;font-family:var(--serif);padding:18px 0;border-bottom:.5px solid var(--border)}
+
+/* HERO — diagnostic-first */
+.hero{padding:48px 36px 88px;max-width:var(--w);margin:0 auto;display:grid;grid-template-columns:1fr 1.05fr;gap:64px;align-items:start;min-height:auto}
+.hero-left{padding-top:24px;position:sticky;top:88px}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:var(--burg-soft);color:var(--burg);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:6px 14px;border-radius:30px;margin-bottom:24px}
+.hero-tag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--burg);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
+.hero-h1{font-family:var(--serif);font-size:clamp(48px,5.6vw,80px);font-weight:400;line-height:1;letter-spacing:-.03em;color:var(--ink);margin-bottom:22px}
+.hero-h1 i{font-style:italic;color:var(--burg);font-weight:300}
+.hero-sub{font-size:17px;font-weight:300;color:var(--ink70);line-height:1.7;max-width:480px;margin-bottom:30px}
+.hero-stats{display:flex;gap:32px;padding:20px 0;border-top:.5px solid var(--border);border-bottom:.5px solid var(--border);margin-bottom:30px}
+.hs{flex:1}
+.hs-n{font-family:var(--serif);font-size:32px;font-weight:500;color:var(--ink);line-height:1;letter-spacing:-.02em}
+.hs-l{font-size:11.5px;color:var(--ink40);margin-top:4px;letter-spacing:.04em}
+.hero-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.btn-dark{background:var(--ink);color:var(--white);font-size:14px;font-weight:500;padding:13px 24px;border-radius:6px;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:background .15s}
+.btn-dark:hover{background:var(--burg)}
+.btn-out{background:transparent;color:var(--ink);font-size:14px;font-weight:400;padding:12px 22px;border-radius:6px;border:.5px solid var(--ink);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .15s}
+.btn-out:hover{background:var(--ink);color:var(--white)}
+
+/* HERO RIGHT — diagnostic */
+.diag-card{background:var(--white);border:.5px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 1px 0 rgba(0,0,0,.02),0 24px 60px rgba(24,23,21,.04)}
+.diag-head{background:var(--ink);padding:22px 28px;color:var(--white)}
+.diag-head-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.diag-head-tag{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:500}
+.diag-head-time{font-size:11px;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:5px}
+.diag-head-time::before{content:"";width:6px;height:6px;border-radius:50%;background:#62D391;animation:pulse 2s infinite}
+.diag-head h2{font-family:var(--serif);font-size:22px;font-weight:500;line-height:1.2;letter-spacing:-.01em;margin-top:6px}
+.diag-prog-wrap{padding:14px 28px 0;background:var(--white)}
+.diag-prog-meta{display:flex;justify-content:space-between;font-size:11px;color:var(--ink40);margin-bottom:8px;font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+.diag-prog-meta strong{color:var(--burg)}
+.diag-prog{height:3px;background:var(--sand2);border-radius:2px;overflow:hidden}
+.diag-prog-fill{height:100%;background:var(--burg);transition:width .4s var(--ease);border-radius:2px}
+.diag-body{padding:28px}
+
+.q-step{display:none}
+.q-step.active{display:block}
+.q-area{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--burg);margin-bottom:8px}
+.q-text{font-family:var(--serif);font-size:22px;font-weight:500;color:var(--ink);margin-bottom:22px;line-height:1.3;letter-spacing:-.01em}
+.q-opts{display:flex;flex-direction:column;gap:8px}
+.q-opt{padding:14px 18px;border:.5px solid var(--border);border-radius:8px;cursor:pointer;font-size:14px;color:var(--ink);background:var(--sand);transition:all .18s;display:flex;align-items:center;gap:12px;line-height:1.4}
+.q-opt:hover{border-color:var(--burg);background:var(--burg-bg)}
+.q-opt.selected{border-color:var(--burg);background:var(--burg-bg);font-weight:500}
+.q-opt-r{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--ink40);flex-shrink:0;transition:all .2s;position:relative}
+.q-opt:hover .q-opt-r{border-color:var(--burg)}
+.q-opt.selected .q-opt-r{border-color:var(--burg);background:var(--burg)}
+.q-opt.selected .q-opt-r::after{content:"";position:absolute;top:3px;left:3px;width:6px;height:6px;border-radius:50%;background:var(--white)}
+.q-nav{display:flex;align-items:center;justify-content:space-between;margin-top:24px;padding-top:20px;border-top:.5px solid var(--border)}
+.q-back{background:none;border:none;color:var(--ink40);font-size:13px;cursor:pointer;font-family:var(--sans);padding:6px 0;font-weight:500;transition:color .15s}
+.q-back:hover{color:var(--ink)}
+.q-back[disabled]{visibility:hidden}
+.q-next{background:var(--ink);color:var(--white);border:none;border-radius:6px;padding:10px 22px;font-size:13px;font-weight:500;cursor:pointer;font-family:var(--sans);transition:background .15s}
+.q-next:hover{background:var(--burg)}
+.q-next:disabled{background:var(--ink40);cursor:default}
+
+/* RESULT */
+.result{display:none;padding:8px 0}
+.result.show{display:block;animation:fade .4s ease forwards}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.score-row{display:flex;align-items:center;gap:24px;margin-bottom:22px;padding-bottom:22px;border-bottom:.5px solid var(--border)}
+.score-circle{width:96px;height:96px;flex-shrink:0;position:relative}
+.score-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;font-family:var(--serif)}
+.score-num strong{font-size:30px;font-weight:600;line-height:1;letter-spacing:-.02em}
+.score-num span{font-size:11px;color:var(--ink40);margin-top:2px;font-family:var(--sans);letter-spacing:.04em}
+.score-label{flex:1}
+.risk-tag{display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border-radius:20px;margin-bottom:6px}
+.risk-low{background:var(--green-soft);color:var(--green)}
+.risk-mid{background:var(--amber-soft);color:var(--amber)}
+.risk-hi{background:var(--red-soft);color:var(--red)}
+.score-h{font-family:var(--serif);font-size:18px;font-weight:500;color:var(--ink);line-height:1.3;letter-spacing:-.01em}
+.score-p{font-size:13px;color:var(--ink70);margin-top:4px;line-height:1.55}
+.breakdown{margin-bottom:22px}
+.bd-h{font-size:11.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink40);margin-bottom:14px}
+.bd-row{display:flex;align-items:center;gap:12px;margin-bottom:9px;font-size:13px}
+.bd-name{flex:1;color:var(--ink70);min-width:0}
+.bd-bar{width:120px;height:6px;background:var(--sand2);border-radius:3px;overflow:hidden;flex-shrink:0}
+.bd-fill{height:100%;border-radius:3px;transition:width .5s var(--ease)}
+.bd-pct{width:40px;text-align:right;font-weight:500;color:var(--ink);font-size:12px;flex-shrink:0}
+
+/* EMAIL GATE */
+.gate{background:var(--burg-bg);border:.5px solid rgba(107,44,44,.15);border-radius:10px;padding:20px;margin-top:8px}
+.gate-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px}
+.gate-ico{width:32px;height:32px;border-radius:50%;background:var(--burg);color:var(--white);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;font-weight:600}
+.gate-h{font-family:var(--serif);font-size:17px;font-weight:500;color:var(--ink);line-height:1.3;letter-spacing:-.01em;margin-bottom:3px}
+.gate-p{font-size:12.5px;color:var(--ink70);line-height:1.55}
+.gate-fields{display:flex;flex-direction:column;gap:8px;margin-bottom:10px}
+.gate-input{background:var(--white);border:.5px solid var(--border);border-radius:6px;padding:11px 14px;font-size:13.5px;font-family:var(--sans);color:var(--ink);width:100%;outline:none;transition:border-color .2s}
+.gate-input:focus{border-color:var(--burg)}
+.gate-row{display:flex;gap:8px}
+.gate-row .gate-input{flex:1}
+.gate-btn{width:100%;background:var(--burg);color:var(--white);border:none;border-radius:6px;padding:12px;font-size:13.5px;font-weight:500;cursor:pointer;font-family:var(--sans);transition:background .15s;display:flex;align-items:center;justify-content:center;gap:8px}
+.gate-btn:hover{background:var(--burg2)}
+.gate-micro{font-size:11px;color:var(--ink40);text-align:center;margin-top:8px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+
+.thanks{display:none;text-align:center;padding:16px 0}
+.thanks.show{display:block}
+.thanks-ico{width:54px;height:54px;border-radius:50%;background:var(--green-soft);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 14px}
+.thanks h3{font-family:var(--serif);font-size:21px;font-weight:500;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em}
+.thanks p{font-size:13.5px;color:var(--ink70);line-height:1.6;max-width:280px;margin:0 auto 18px}
+.thanks-cta{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--white);font-size:13px;font-weight:500;padding:11px 20px;border-radius:6px;text-decoration:none}
+
+/* SECTION SHARED */
+.sec{padding:96px 36px;max-width:var(--w);margin:0 auto}
+.sec-tag{display:inline-block;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--burg);margin-bottom:14px}
+.sec-h{font-family:var(--serif);font-size:clamp(34px,4.4vw,56px);font-weight:400;line-height:1.05;letter-spacing:-.025em;color:var(--ink)}
+.sec-h i{font-style:italic;color:var(--burg);font-weight:300}
+.sec-p{font-size:16px;color:var(--ink70);line-height:1.75;max-width:560px;margin-top:14px;font-weight:300}
+
+/* MANIFESTO */
+.manifesto{background:var(--ink);color:var(--white);padding:88px 36px}
+.manifesto-inner{max-width:920px;margin:0 auto;text-align:center}
+.manifesto-tag{display:inline-block;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:24px}
+.manifesto-q{font-family:var(--serif);font-size:clamp(28px,3.6vw,44px);font-weight:300;line-height:1.25;letter-spacing:-.015em;color:var(--white);font-style:italic}
+.manifesto-q b{font-weight:500;font-style:normal;color:#E8C875}
+.manifesto-att{margin-top:32px;font-size:13px;color:rgba(255,255,255,.5);letter-spacing:.04em}
+.manifesto-att strong{color:rgba(255,255,255,.85);font-weight:500}
+
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);margin-top:48px;border:.5px solid var(--border);border-radius:14px;overflow:hidden}
+.svc{background:var(--white);padding:32px 30px;position:relative;transition:background .25s}
+.svc:hover{background:var(--burg-bg)}
+.svc-num{position:absolute;top:24px;right:28px;font-family:var(--serif);font-size:14px;font-weight:500;color:var(--ink40);letter-spacing:.04em}
+.svc-ico{width:44px;height:44px;border-radius:50%;background:var(--sand);border:.5px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:18px}
+.svc h3{font-family:var(--serif);font-size:21px;font-weight:500;color:var(--ink);margin-bottom:10px;letter-spacing:-.01em;line-height:1.25}
+.svc p{font-size:14px;color:var(--ink70);line-height:1.7}
+.svc-meta{display:flex;align-items:center;gap:12px;margin-top:16px;padding-top:14px;border-top:.5px solid var(--border)}
+.svc-meta-i{font-size:11.5px;color:var(--ink40);display:flex;align-items:center;gap:5px}
+.svc-meta-i b{color:var(--burg);font-weight:500}
+
+/* PROCESS — horizontal timeline */
+.process{background:var(--sand2);padding:96px 36px}
+.process-inner{max-width:var(--w);margin:0 auto}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border2);margin-top:56px;border-radius:12px;overflow:hidden;border:.5px solid var(--border2)}
+.tl{background:var(--sand);padding:28px 26px;position:relative}
+.tl-step{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.tl-num{width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;flex-shrink:0}
+.tl-time{font-size:11px;color:var(--ink40);letter-spacing:.04em;font-weight:500}
+.tl h4{font-family:var(--serif);font-size:18px;font-weight:500;color:var(--ink);letter-spacing:-.01em;margin-bottom:6px;line-height:1.25}
+.tl p{font-size:13px;color:var(--ink70);line-height:1.65}
+
+/* PRICING TRANSPARENCY */
+.pricing-wrap{background:var(--sand)}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.price-card{background:var(--white);border:.5px solid var(--border);border-radius:14px;padding:28px;position:relative;transition:transform .2s var(--ease),box-shadow .2s}
+.price-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(24,23,21,.06)}
+.price-card.featured{border-color:var(--burg);border-width:1px;background:var(--burg-bg)}
+.price-feat-tag{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--burg);color:var(--white);font-size:10.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;border-radius:20px}
+.price-cat{font-size:11.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--burg);margin-bottom:8px}
+.price-h{font-family:var(--serif);font-size:22px;font-weight:500;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em}
+.price-range{font-family:var(--serif);font-size:30px;font-weight:500;color:var(--ink);margin-bottom:16px;letter-spacing:-.02em}
+.price-range small{font-size:13px;color:var(--ink40);font-family:var(--sans);font-weight:400;margin-left:4px}
+.price-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+.price-list li{font-size:13.5px;color:var(--ink70);display:flex;align-items:flex-start;gap:9px;line-height:1.5}
+.price-list li::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--green-soft);color:var(--green);font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path fill='%232D6A4F' d='M5 8.5L2.5 6l1-1L5 6.5l3.5-3.5 1 1z'/></svg>");background-size:contain;background-repeat:no-repeat}
+.price-cta{display:block;width:100%;text-align:center;padding:11px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:500;border:.5px solid var(--ink);color:var(--ink);background:transparent;transition:all .15s}
+.price-cta:hover{background:var(--ink);color:var(--white)}
+.price-card.featured .price-cta{background:var(--burg);color:var(--white);border-color:var(--burg)}
+.price-card.featured .price-cta:hover{background:var(--ink);border-color:var(--ink)}
+.price-disc{margin-top:32px;padding:18px 22px;background:var(--sand2);border-left:2px solid var(--burg);font-size:13px;color:var(--ink70);line-height:1.65;border-radius:4px}
+
+/* QUOTES */
+.quotes-wrap{background:var(--white)}
+.quotes-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:48px}
+.qcard{background:var(--sand);border:.5px solid var(--border);border-radius:12px;padding:30px;position:relative}
+.qcard-quote{font-family:var(--serif);font-size:19px;font-style:italic;font-weight:400;color:var(--ink);line-height:1.45;letter-spacing:-.005em;margin-bottom:16px}
+.qcard-quote::before{content:"\201C";color:var(--burg);font-size:32px;line-height:0;vertical-align:-12px;margin-right:2px}
+.qcard-body{font-size:13.5px;color:var(--ink70);line-height:1.7;margin-bottom:18px}
+.qcard-meta{display:flex;align-items:center;gap:12px;border-top:.5px solid var(--border);padding-top:16px}
+.qcard-av{width:40px;height:40px;border-radius:50%;background:var(--burg);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;flex-shrink:0}
+.qcard-name{font-size:14px;font-weight:500;color:var(--ink)}
+.qcard-role{font-size:12px;color:var(--ink40)}
+.qcard-stars{margin-left:auto;color:var(--gold);font-size:12px;letter-spacing:1.5px}
+
+/* ABOUT */
+.about-wrap{background:var(--ink);color:var(--white);padding:96px 36px}
+.about-inner{max-width:var(--w);margin:0 auto;display:grid;grid-template-columns:.85fr 1.15fr;gap:80px;align-items:center}
+.about-img{aspect-ratio:4/5;background:linear-gradient(180deg,var(--burg) 0%,#3A1717 100%);border-radius:12px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.about-img-i{font-family:var(--serif);font-size:140px;color:rgba(255,255,255,.07);font-weight:500;letter-spacing:-.05em;line-height:.9}
+.about-tag{display:inline-block;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:18px}
+.about-h{font-family:var(--serif);font-size:clamp(30px,3.8vw,48px);font-weight:400;line-height:1.06;letter-spacing:-.025em;margin-bottom:24px;color:var(--white)}
+.about-h i{font-style:italic;color:#E8C875;font-weight:300}
+.about-p{font-size:15px;color:rgba(255,255,255,.65);line-height:1.8;margin-bottom:14px;font-weight:300}
+.about-credos{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
+.credo{padding:16px 18px;background:rgba(255,255,255,.04);border:.5px solid rgba(255,255,255,.08);border-radius:10px}
+.credo strong{display:block;font-family:var(--serif);font-size:24px;font-weight:500;color:#E8C875;margin-bottom:4px;letter-spacing:-.01em}
+.credo span{font-size:12.5px;color:rgba(255,255,255,.55);line-height:1.5}
+
+/* FAQ */
+.faq-wrap{background:var(--sand2)}
+.faq-list{display:flex;flex-direction:column;gap:8px;margin-top:48px;max-width:780px;margin-left:auto;margin-right:auto}
+.faq{background:var(--white);border:.5px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color .2s}
+.faq[open]{border-color:var(--burg)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 24px;font-weight:500;font-size:15px;color:var(--ink);position:relative;padding-right:50px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:22px;top:50%;transform:translateY(-50%);font-family:var(--serif);font-size:22px;font-weight:300;color:var(--burg);transition:transform .25s var(--ease)}
+.faq[open] summary::after{content:"−";transform:translateY(-50%) rotate(180deg)}
+.faq p{padding:0 24px 22px;font-size:14px;color:var(--ink70);line-height:1.75;border-top:.5px solid var(--border);padding-top:16px;font-weight:300}
+
+/* FINAL CTA */
+.final-cta{background:var(--burg);color:var(--white);padding:88px 36px;text-align:center}
+.final-h{font-family:var(--serif);font-size:clamp(32px,4.4vw,52px);font-weight:400;line-height:1.06;letter-spacing:-.025em;color:var(--white);max-width:780px;margin:0 auto 14px}
+.final-h i{font-style:italic;color:#F5D89C;font-weight:300}
+.final-p{font-size:16px;color:rgba(255,255,255,.7);max-width:540px;margin:0 auto 32px;line-height:1.7;font-weight:300}
+.final-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn-cream{background:var(--sand);color:var(--burg);border:none;border-radius:6px;padding:14px 26px;font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background .15s}
+.btn-cream:hover{background:var(--white)}
+.btn-ghost{background:transparent;color:var(--white);border:.5px solid rgba(255,255,255,.4);border-radius:6px;padding:13px 24px;font-size:14px;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .15s}
+.btn-ghost:hover{background:rgba(255,255,255,.1);border-color:var(--white)}
+
+/* FOOTER */
+footer{background:var(--ink);color:var(--white)}
+.foot-main{max-width:var(--w);margin:0 auto;padding:56px 36px;display:grid;grid-template-columns:2.4fr 1fr 1fr;gap:56px}
+.foot-brand-name{font-family:var(--serif);font-size:22px;font-weight:500;color:var(--white);margin-bottom:8px;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
+.foot-brand-name .brand-mark{background:var(--burg)}
+.foot-brand p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.7;margin-top:12px}
+.foot-brand a{color:rgba(255,255,255,.4);text-decoration:none}
+.foot-brand a:hover{color:rgba(255,255,255,.85)}
+.foot-col h4{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:14px;font-weight:500}
+.foot-col a{display:block;font-size:13px;color:rgba(255,255,255,.45);text-decoration:none;margin-bottom:10px}
+.foot-col a:hover{color:rgba(255,255,255,.9)}
+.foot-bot{border-top:.5px solid rgba(255,255,255,.07);padding:18px 36px;max-width:var(--w);margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.foot-bot p{font-size:11.5px;color:rgba(255,255,255,.3)}
+.foot-disc{border-top:.5px solid rgba(255,255,255,.04);padding:18px 36px}
+.foot-disc p{max-width:var(--w);margin:0 auto;font-size:11px;color:rgba(255,255,255,.22);line-height:1.7}
+
+/* WA */
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:490;width:54px;height:54px;background:#22C55E;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(34,197,94,.35);text-decoration:none;transition:transform .15s}
+.wa-float:hover{transform:scale(1.06)}
+.wa-float svg{width:26px;height:26px;fill:#fff}
+
+/* Mobile bar */
+.mob-bar{position:fixed;left:12px;right:12px;bottom:12px;z-index:489;display:none;gap:8px;opacity:0;transform:translateY(16px);transition:opacity .25s,transform .25s}
+.mob-bar.show{opacity:1;transform:none}
+.mob-bar a{flex:1;text-align:center;text-decoration:none;padding:13px;border-radius:50px;font-weight:600;font-size:14px;box-shadow:0 4px 16px rgba(0,0,0,.16)}
+.mb-call{background:var(--ink);color:var(--white)}
+.mb-wa{background:#22C55E;color:var(--white)}
+
+/* Cookie */
+.ck{position:fixed;bottom:0;left:0;right:0;z-index:1001;background:var(--white);border-top:.5px solid var(--border);padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.ck p{font-size:13px;color:var(--ink70);max-width:680px}
+.ck p a{color:var(--burg)}
+.ck-btns{display:flex;gap:8px;flex-shrink:0}
+.ck-btn{font-size:13px;padding:9px 18px;border-radius:6px;cursor:pointer;border:.5px solid var(--border);font-weight:500;font-family:var(--sans)}
+.ck-ok{background:var(--ink);color:var(--white);border-color:var(--ink)}
+
+[data-r]{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.22,.68,0,1),transform .6s cubic-bezier(.22,.68,0,1)}
+[data-r].v{opacity:1;transform:none}
+[data-r][data-d="1"]{transition-delay:.1s}[data-r][data-d="2"]{transition-delay:.2s}[data-r][data-d="3"]{transition-delay:.3s}[data-r][data-d="4"]{transition-delay:.4s}
+
+@media(max-width:980px){
+  nav{padding:0 20px}.nav-links{display:none}.nav-ham{display:flex}
+  .hero{grid-template-columns:1fr;gap:40px;padding:32px 20px 56px}
+  .hero-left{position:static}
+  .sec,.process,.pricing-wrap,.quotes-wrap,.about-wrap,.faq-wrap,.final-cta,.manifesto{padding:64px 20px}
+  .svc-grid,.timeline,.price-grid,.quotes-grid,.about-inner{grid-template-columns:1fr;gap:14px;background:transparent;border:none}
+  .svc{border-radius:12px;border:.5px solid var(--border)}
+  .timeline{gap:14px;border:none;background:transparent}
+  .tl{border-radius:12px;border:.5px solid var(--border2)}
+  .about-inner{gap:32px}
+  .about-img{aspect-ratio:3/2;max-height:280px}
+  .foot-main{grid-template-columns:1fr;padding:40px 20px;gap:32px}
+  .foot-bot,.foot-disc{padding:16px 20px}
+  .wa-float{bottom:80px;width:46px;height:46px;right:16px}
+  .wa-float svg{width:22px;height:22px}
+  .mob-bar{display:flex}
+  body{padding-bottom:76px}
+}
+@media(max-width:600px){
+  .hero-h1{font-size:42px}
+  .hero-stats{flex-wrap:wrap;gap:18px}.hs{flex-basis:calc(50% - 9px)}
+  .gate-row{flex-direction:column}
+  .ck-btns{width:100%}.ck-btn{flex:1}
+  .score-row{flex-direction:column;align-items:flex-start;text-align:left;gap:14px}
+  .bd-bar{width:80px}
+}
+</style>
+</head>
+<body>
+
+<div id="prog"></div>
+
+<a href="https://wa.me/393934411700?text=Buongiorno%20Avv.%20Tremolada%2C%20vorrei%20una%20consulenza%20contrattuale." class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<div class="mob-bar" id="mobBar">
+  <a href="tel:+393934411700" class="mb-call">📞 Chiama</a>
+  <a href="https://wa.me/393934411700?text=Buongiorno%20Avv.%20Tremolada%2C%20vorrei%20una%20consulenza%20contrattuale." class="mb-wa" target="_blank" rel="noopener">💬 WhatsApp</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="brand">
+    <span class="brand-mark">T</span>
+    <span>
+      <span style="display:block;line-height:1">Tremolada</span>
+      <span class="brand-sub">Studio Legale</span>
+    </span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#audit">Contract Audit</a></li>
+    <li><a href="#servizi">Servizi</a></li>
+    <li><a href="#tariffe">Tariffe</a></li>
+    <li><a href="#avvocato">Lo studio</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="/guide-contrattualistica.html">Guide</a></li>
+    <li><a href="https://recuperocreditiaziende.it" target="_blank" rel="noopener">Recupero crediti</a></li>
+    <li><a href="https://recuperocreditiaziende.it/sfratti.html" target="_blank" rel="noopener">Sfratti</a></li>
+    <li><a href="#audit" class="nav-cta">Avvia analisi</a></li>
+  </ul>
+  <button class="nav-ham" onclick="document.getElementById('navD').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-drawer" id="navD">
+  <a href="#audit" onclick="document.getElementById('navD').classList.remove('open')">Contract Audit</a>
+  <a href="#servizi" onclick="document.getElementById('navD').classList.remove('open')">Servizi</a>
+  <a href="#tariffe" onclick="document.getElementById('navD').classList.remove('open')">Tariffe</a>
+  <a href="#avvocato" onclick="document.getElementById('navD').classList.remove('open')">Lo studio</a>
+  <a href="#faq" onclick="document.getElementById('navD').classList.remove('open')">FAQ</a>
+  <a href="/guide-contrattualistica.html" onclick="document.getElementById('navD').classList.remove('open')">Guide</a>
+  <a href="https://recuperocreditiaziende.it" target="_blank" rel="noopener" onclick="document.getElementById('navD').classList.remove('open')">Recupero crediti</a>
+  <a href="https://recuperocreditiaziende.it/sfratti.html" target="_blank" rel="noopener" onclick="document.getElementById('navD').classList.remove('open')">Sfratti</a>
+</div>
+
+<!-- HERO + DIAGNOSTIC -->
+<section class="hero" id="audit">
+  <div class="hero-left">
+    <div class="hero-tag">Contract Audit · Strumento gratuito</div>
+    <h1 class="hero-h1">Audit del<br>tuo rischio<br><i>contrattuale.</i></h1>
+    <p class="hero-sub">5 domande, 2 minuti. Ricevi un report personalizzato con il tuo profilo di rischio e le 3 azioni prioritarie per la tua impresa.</p>
+    <div class="hero-stats">
+      <div class="hs"><div class="hs-n">500+</div><div class="hs-l">Contratti redatti</div></div>
+      <div class="hs"><div class="hs-n">10+</div><div class="hs-l">Anni di attività</div></div>
+      <div class="hs"><div class="hs-n">24h</div><div class="hs-l">Prima risposta</div></div>
+    </div>
+    <div class="hero-actions">
+      <a href="#tariffe" class="btn-out">Vedi le tariffe</a>
+      <a href="tel:+393934411700" class="btn-out">📞 Chiama</a>
+    </div>
+  </div>
+
+  <!-- DIAGNOSTIC -->
+  <div class="hero-right">
+    <div class="diag-card">
+      <div class="diag-head">
+        <div class="diag-head-row">
+          <span class="diag-head-tag">Contract Health Audit</span>
+          <span class="diag-head-time">2 min · Tool gratuito</span>
+        </div>
+        <h2 id="diagHead">Iniziamo dalla tua documentazione</h2>
+      </div>
+      <div class="diag-prog-wrap">
+        <div class="diag-prog-meta">
+          <span>Domanda <strong id="qCur">1</strong> di 5</span>
+          <span id="qPct">20%</span>
+        </div>
+        <div class="diag-prog"><div class="diag-prog-fill" id="qProg" style="width:20%"></div></div>
+      </div>
+      <div class="diag-body">
+
+        <!-- Q1 -->
+        <div class="q-step active" id="q1" data-area="Documentazione">
+          <div class="q-area">Area · Aggiornamento documentale</div>
+          <div class="q-text">Quando hai aggiornato l'ultima volta i contratti tipo che usi con clienti e fornitori?</div>
+          <div class="q-opts">
+            <div class="q-opt" onclick="pickOpt(this,1,0)"><div class="q-opt-r"></div><span>Negli ultimi 12 mesi — sono allineati alla mia attività attuale</span></div>
+            <div class="q-opt" onclick="pickOpt(this,1,1)"><div class="q-opt-r"></div><span>Tra 1 e 3 anni fa</span></div>
+            <div class="q-opt" onclick="pickOpt(this,1,2)"><div class="q-opt-r"></div><span>Più di 3 anni fa, oppure non ricordo</span></div>
+            <div class="q-opt" onclick="pickOpt(this,1,3)"><div class="q-opt-r"></div><span>Non ho contratti tipo, uso accordi verbali o email</span></div>
+          </div>
+          <div class="q-nav"><button class="q-back" disabled>← Indietro</button><button class="q-next" id="btn1" onclick="go(1,2)" disabled>Avanti →</button></div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="q-step" id="q2" data-area="Riservatezza">
+          <div class="q-area">Area · Tutela informazioni riservate</div>
+          <div class="q-text">Quando condividi informazioni sensibili (preventivi, know-how, idee) con potenziali partner?</div>
+          <div class="q-opts">
+            <div class="q-opt" onclick="pickOpt(this,2,0)"><div class="q-opt-r"></div><span>Firmiamo sempre un NDA bilaterale prima</span></div>
+            <div class="q-opt" onclick="pickOpt(this,2,1)"><div class="q-opt-r"></div><span>Uso un modello NDA standard scaricato online</span></div>
+            <div class="q-opt" onclick="pickOpt(this,2,2)"><div class="q-opt-r"></div><span>A volte sì, a volte no — dipende</span></div>
+            <div class="q-opt" onclick="pickOpt(this,2,3)"><div class="q-opt-r"></div><span>Non li uso mai — mi affido alla parola data</span></div>
+          </div>
+          <div class="q-nav"><button class="q-back" onclick="back(2,1)">← Indietro</button><button class="q-next" id="btn2" onclick="go(2,3)" disabled>Avanti →</button></div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="q-step" id="q3" data-area="Internazionale">
+          <div class="q-area">Area · Operazioni con l'estero</div>
+          <div class="q-text">Hai rapporti commerciali con aziende straniere o operazioni cross-border?</div>
+          <div class="q-opts">
+            <div class="q-opt" onclick="pickOpt(this,3,0)"><div class="q-opt-r"></div><span>No, opero solo in Italia</span></div>
+            <div class="q-opt" onclick="pickOpt(this,3,1)"><div class="q-opt-r"></div><span>Sì, con contratti specifici per l'internazionale</span></div>
+            <div class="q-opt" onclick="pickOpt(this,3,2)"><div class="q-opt-r"></div><span>Sì, ma uso gli stessi contratti dell'Italia</span></div>
+            <div class="q-opt" onclick="pickOpt(this,3,3)"><div class="q-opt-r"></div><span>Sì, e non sono sicuro di come sia gestita la giurisdizione</span></div>
+          </div>
+          <div class="q-nav"><button class="q-back" onclick="back(3,2)">← Indietro</button><button class="q-next" id="btn3" onclick="go(3,4)" disabled>Avanti →</button></div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="q-step" id="q4" data-area="Responsabilità">
+          <div class="q-area">Area · Limitazioni di responsabilità</div>
+          <div class="q-text">I tuoi contratti contengono clausole che limitano la tua responsabilità in caso di errori, ritardi o danni?</div>
+          <div class="q-opts">
+            <div class="q-opt" onclick="pickOpt(this,4,0)"><div class="q-opt-r"></div><span>Sì, calibrate sul valore del contratto</span></div>
+            <div class="q-opt" onclick="pickOpt(this,4,1)"><div class="q-opt-r"></div><span>Sì, ma sono clausole standard non personalizzate</span></div>
+            <div class="q-opt" onclick="pickOpt(this,4,2)"><div class="q-opt-r"></div><span>Non sono sicuro di cosa contengano i miei contratti</span></div>
+            <div class="q-opt" onclick="pickOpt(this,4,3)"><div class="q-opt-r"></div><span>No, accetto i contratti redatti dalla controparte</span></div>
+          </div>
+          <div class="q-nav"><button class="q-back" onclick="back(4,3)">← Indietro</button><button class="q-next" id="btn4" onclick="go(4,5)" disabled>Avanti →</button></div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="q-step" id="q5" data-area="Proprietà intellettuale">
+          <div class="q-area">Area · Proprietà intellettuale</div>
+          <div class="q-text">Se la tua attività produce output creativi o tecnici (software, design, contenuti), come gestisci la titolarità della PI?</div>
+          <div class="q-opts">
+            <div class="q-opt" onclick="pickOpt(this,5,0)"><div class="q-opt-r"></div><span>Ogni contratto specifica chiaramente chi possiede cosa</span></div>
+            <div class="q-opt" onclick="pickOpt(this,5,1)"><div class="q-opt-r"></div><span>In linea generale è chiaro, ma non sempre formalizzato</span></div>
+            <div class="q-opt" onclick="pickOpt(this,5,2)"><div class="q-opt-r"></div><span>Non se ne è mai parlato esplicitamente</span></div>
+            <div class="q-opt" onclick="pickOpt(this,5,3)"><div class="q-opt-r"></div><span>Non si applica alla mia attività</span></div>
+          </div>
+          <div class="q-nav"><button class="q-back" onclick="back(5,4)">← Indietro</button><button class="q-next" id="btn5" onclick="showResult()" disabled>Vedi il risultato →</button></div>
+        </div>
+
+        <!-- RESULT -->
+        <div class="result" id="result">
+          <div class="score-row">
+            <div class="score-circle">
+              <svg width="96" height="96" viewBox="0 0 96 96">
+                <circle cx="48" cy="48" r="42" fill="none" stroke="#E5DFD3" stroke-width="6"/>
+                <circle id="scoreRing" cx="48" cy="48" r="42" fill="none" stroke="#6B2C2C" stroke-width="6" stroke-dasharray="263.9" stroke-dashoffset="263.9" stroke-linecap="round" transform="rotate(-90 48 48)"/>
+              </svg>
+              <div class="score-num"><strong id="scoreVal">0</strong><span>/100</span></div>
+            </div>
+            <div class="score-label">
+              <span class="risk-tag" id="riskTag">—</span>
+              <div class="score-h" id="riskH">—</div>
+              <div class="score-p" id="riskP">—</div>
+            </div>
+          </div>
+
+          <div class="breakdown">
+            <div class="bd-h">Profilo per area</div>
+            <div id="bdRows"></div>
+          </div>
+
+          <!-- EMAIL GATE -->
+          <div class="gate" id="gate">
+            <div class="gate-head">
+              <div class="gate-ico">PDF</div>
+              <div>
+                <div class="gate-h">Vuoi il report completo?</div>
+                <div class="gate-p">Ti inviamo via email l'analisi dettagliata con priorità d'azione, esempi pratici e un check-up iniziale con l'avvocato.</div>
+              </div>
+            </div>
+            <div class="gate-fields">
+              <input class="gate-input" type="text" id="gName" placeholder="Nome e cognome *">
+              <div class="gate-row">
+                <input class="gate-input" type="email" id="gEmail" placeholder="Email *">
+                <input class="gate-input" type="tel" id="gTel" placeholder="Telefono">
+              </div>
+            </div>
+            <button class="gate-btn" onclick="submitGate()">Invia il mio report → gratuito</button>
+            <div class="gate-micro">
+              <span>🔒 Dati protetti</span>
+              <span>✉️ Nessuno spam</span>
+              <span>📋 Senza impegno</span>
+            </div>
+          </div>
+
+          <div class="thanks" id="thanks">
+            <div class="thanks-ico">✓</div>
+            <h3>Report inviato!</h3>
+            <p>Controlla la casella email — l'avvocato ti contatterà entro la giornata lavorativa per il check-up iniziale.</p>
+            <a href="tel:+393934411700" class="thanks-cta">📞 Oppure chiama subito</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto">
+  <div class="manifesto-inner" data-r>
+    <div class="manifesto-tag">Il focus dell'attività</div>
+    <p class="manifesto-q">«Un contratto non revisionato è un <b>rischio invisibile</b>: non si vede, finché non diventa un contenzioso. Il mio lavoro è proteggerti prima.»</p>
+    <p class="manifesto-att"><strong>Avv. Matteo Tremolada</strong> · Foro di Monza</p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec" id="servizi">
+  <div data-r>
+    <div class="sec-tag">Cosa facciamo</div>
+    <h2 class="sec-h">Servizi <i>su misura</i> per imprese e studi.</h2>
+    <p class="sec-p">Ogni intervento parte dalla tua attività concreta — non da un modello standard. Lavoriamo con PMI, startup, professionisti e studi.</p>
+  </div>
+  <div class="svc-grid">
+    <div class="svc" data-r data-d="1">
+      <div class="svc-num">01</div>
+      <div class="svc-ico">📝</div>
+      <h3>Redazione contratti</h3>
+      <p>Contratti di fornitura, distribuzione, agenzia, SLA, accordi commerciali. Costruiti partendo dalla tua attività e dai rischi specifici della tua filiera.</p>
+      <div class="svc-meta"><span class="svc-meta-i">⏱ <b>3–10 giorni</b></span><span class="svc-meta-i">📋 Su misura</span></div>
+    </div>
+    <div class="svc" data-r data-d="2">
+      <div class="svc-num">02</div>
+      <div class="svc-ico">🔍</div>
+      <h3>Revisione e negoziazione</h3>
+      <p>Analizziamo contratti ricevuti dalla controparte, identifichiamo le clausole critiche e ti supportiamo nella negoziazione. Spiegazione punto per punto.</p>
+      <div class="svc-meta"><span class="svc-meta-i">⏱ <b>2–5 giorni</b></span><span class="svc-meta-i">📋 Con report</span></div>
+    </div>
+    <div class="svc" data-r data-d="1">
+      <div class="svc-num">03</div>
+      <div class="svc-ico">🤫</div>
+      <h3>NDA e accordi di riservatezza</h3>
+      <p>Per trattative, presentazioni a investitori, scambi di know-how. Bilaterali o unilaterali, calibrati sul tipo di informazione e sulla controparte.</p>
+      <div class="svc-meta"><span class="svc-meta-i">⏱ <b>2–3 giorni</b></span><span class="svc-meta-i">📋 Pronti all'uso</span></div>
+    </div>
+    <div class="svc" data-r data-d="2">
+      <div class="svc-num">04</div>
+      <div class="svc-ico">🌍</div>
+      <h3>Contratti internazionali</h3>
+      <p>Aziende estere, scelta della legge applicabile, foro, clausole arbitrali. Adattamento alle normative del paese della controparte (UE ed extra-UE).</p>
+      <div class="svc-meta"><span class="svc-meta-i">⏱ <b>5–15 giorni</b></span><span class="svc-meta-i">📋 EN/IT</span></div>
+    </div>
+    <div class="svc" data-r data-d="1">
+      <div class="svc-num">05</div>
+      <div class="svc-ico">🤝</div>
+      <h3>Accordi tra soci e governance</h3>
+      <p>Patti parasociali, shareholders agreement, joint venture, regole di governance. Strutture solide che reggono nel tempo, anche nei momenti difficili.</p>
+      <div class="svc-meta"><span class="svc-meta-i">⏱ <b>10–20 giorni</b></span><span class="svc-meta-i">📋 Startup · M&A</span></div>
+    </div>
+    <div class="svc" data-r data-d="2">
+      <div class="svc-num">06</div>
+      <div class="svc-ico">💼</div>
+      <h3>Consulenza continuativa</h3>
+      <p>Per imprese che firmano contratti regolarmente. Tariffa mensile, revisione e supporto on-demand, accesso prioritario. Più conveniente del singolo intervento.</p>
+      <div class="svc-meta"><span class="svc-meta-i">📋 <b>Pacchetto annuale</b></span><span class="svc-meta-i">⏱ Sempre disponibili</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS TIMELINE -->
+<section class="process">
+  <div class="process-inner">
+    <div data-r style="text-align:center;max-width:680px;margin:0 auto">
+      <div class="sec-tag">Il metodo</div>
+      <h2 class="sec-h">Quattro tappe, <i>nessuna sorpresa.</i></h2>
+      <p class="sec-p" style="margin:14px auto 0">Tempi e costi condivisi prima di iniziare. Ogni passaggio viene approvato da te.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl" data-r data-d="1">
+        <div class="tl-step"><div class="tl-num">1</div><div class="tl-time">Giorno 0</div></div>
+        <h4>Primo contatto</h4>
+        <p>Audit, telefonata o email. Capiamo l'esigenza in 20 minuti.</p>
+      </div>
+      <div class="tl" data-r data-d="2">
+        <div class="tl-step"><div class="tl-num">2</div><div class="tl-time">Entro 24h</div></div>
+        <h4>Valutazione</h4>
+        <p>Prima risposta con approccio proposto e prossimi passi.</p>
+      </div>
+      <div class="tl" data-r data-d="3">
+        <div class="tl-step"><div class="tl-num">3</div><div class="tl-time">Entro 48h</div></div>
+        <h4>Preventivo chiaro</h4>
+        <p>Costi, tempi, deliverable. La scelta è tua.</p>
+      </div>
+      <div class="tl" data-r data-d="4">
+        <div class="tl-step"><div class="tl-num">4</div><div class="tl-time">3–10 giorni</div></div>
+        <h4>Consegna</h4>
+        <p>Bozze, revisioni con te, contratto finale pronto da firmare.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING TRANSPARENCY -->
+<section class="sec pricing-wrap" id="tariffe">
+  <div data-r>
+    <div class="sec-tag">Tariffe</div>
+    <h2 class="sec-h">Trasparenza, <i>prima di tutto.</i></h2>
+    <p class="sec-p">Forchette indicative basate sui casi più ricorrenti. Il preventivo definitivo arriva dopo l'analisi dell'esigenza concreta, sempre prima di iniziare a lavorare.</p>
+  </div>
+  <div class="price-grid">
+    <div class="price-card" data-r data-d="1">
+      <div class="price-cat">Singolo intervento</div>
+      <h3 class="price-h">Contratto Essenziale</h3>
+      <div class="price-range">€350–700<small>+IVA</small></div>
+      <ul class="price-list">
+        <li>NDA bilaterale o unilaterale</li>
+        <li>Lettera di incarico professionale</li>
+        <li>Contratto standard</li>
+        <li>Una revisione inclusa</li>
+        <li>Consegna in 2–3 giorni</li>
+      </ul>
+      <a href="#audit" class="price-cta">Avvia l'audit</a>
+    </div>
+    <div class="price-card featured" data-r data-d="2">
+      <div class="price-feat-tag">Più richiesto</div>
+      <div class="price-cat">Singolo intervento</div>
+      <h3 class="price-h">Contratto Strategico</h3>
+      <div class="price-range">€800–2.500<small>+IVA</small></div>
+      <ul class="price-list">
+        <li>Fornitura, distribuzione, agenzia</li>
+        <li>Accordi commerciali articolati</li>
+        <li>Patti parasociali, JV</li>
+        <li>Due revisioni incluse</li>
+        <li>Negoziazione con controparte</li>
+        <li>Versione bilingue (su richiesta)</li>
+      </ul>
+      <a href="#audit" class="price-cta">Avvia l'audit</a>
+    </div>
+    <div class="price-card" data-r data-d="3">
+      <div class="price-cat">Affiancamento</div>
+      <h3 class="price-h">Assistenza Continuativa</h3>
+      <div class="price-range">da €300<small>/mese +IVA</small></div>
+      <ul class="price-list">
+        <li>Revisione documenti illimitata</li>
+        <li>Supporto telefonico prioritario</li>
+        <li>Aggiornamenti periodici</li>
+        <li>Sconto dedicato per tutto il contenzioso</li>
+        <li>Audit annuale completo</li>
+      </ul>
+      <a href="#audit" class="price-cta">Avvia l'audit</a>
+    </div>
+  </div>
+  <div class="price-disc"><strong>Importante:</strong> queste sono forchette indicative. Il costo finale dipende dalla complessità specifica, dal numero di parti coinvolte e dai tempi richiesti. La prima valutazione è sempre gratuita e include un preventivo dettagliato.</div>
+</section>
+
+<!-- QUOTES -->
+<section class="sec quotes-wrap">
+  <div data-r>
+    <div class="sec-tag">Cosa dicono i clienti</div>
+    <h2 class="sec-h">Imprese che <i>dormono meglio</i> la notte.</h2>
+  </div>
+  <div class="quotes-grid">
+    <div class="qcard" data-r data-d="1">
+      <div class="qcard-quote">Ha identificato tre clausole che avevamo completamente ignorato. Senza la sua revisione, oggi avremmo un problema serio con il nostro distributore tedesco.</div>
+      <p class="qcard-body">Ricevevamo un contratto che sembrava standard. L'analisi puntuale ha rivelato limitazioni di responsabilità sproporzionate e clausole di esclusiva pericolose.</p>
+      <div class="qcard-meta">
+        <div class="qcard-av">SV</div>
+        <div><div class="qcard-name">Sara V.</div><div class="qcard-role">CFO · PMI manifatturiera, Bergamo</div></div>
+        <div class="qcard-stars">★★★★★</div>
+      </div>
+    </div>
+    <div class="qcard" data-r data-d="2">
+      <div class="qcard-quote">Da quando i nostri contratti sono fatti bene, perdiamo molto meno tempo a gestire eccezioni e contestazioni. Il ritorno sull'investimento è stato praticamente immediato.</div>
+      <p class="qcard-body">Prima firmavamo quasi tutto senza guardare troppo. Ora abbiamo modelli solidi per clienti, fornitori e collaboratori. Approccio pragmatico, non burocratico.</p>
+      <div class="qcard-meta">
+        <div class="qcard-av">MB</div>
+        <div><div class="qcard-name">Marco B.</div><div class="qcard-role">CEO · Servizi B2B, Milano</div></div>
+        <div class="qcard-stars">★★★★★</div>
+      </div>
+    </div>
+    <div class="qcard" data-r data-d="3">
+      <div class="qcard-quote">NDA, accordo tra soci, contratti con i primi clienti: in due settimane avevamo tutto pronto. Esattamente quello che serve a una startup.</div>
+      <p class="qcard-body">Approccio diretto, prezzi onesti, disponibilità reale. Ci ha aiutato a partire con basi solide senza rallentarci.</p>
+      <div class="qcard-meta">
+        <div class="qcard-av">DM</div>
+        <div><div class="qcard-name">Davide M.</div><div class="qcard-role">Founder · Startup tech, Monza</div></div>
+        <div class="qcard-stars">★★★★★</div>
+      </div>
+    </div>
+    <div class="qcard" data-r data-d="4">
+      <div class="qcard-quote">Spiega le cose senza parlare in legalese. È raro, ed è esattamente quello che serve a chi gestisce un'impresa.</div>
+      <p class="qcard-body">Ogni clausola viene spiegata in italiano comprensibile, con esempi concreti su cosa accadrebbe in caso di problema. Aiuta davvero a decidere.</p>
+      <div class="qcard-meta">
+        <div class="qcard-av">EC</div>
+        <div><div class="qcard-name">Elena C.</div><div class="qcard-role">Imprenditrice · E-commerce, Como</div></div>
+        <div class="qcard-stars">★★★★★</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-wrap" id="avvocato">
+  <div class="about-inner">
+    <div data-r>
+      <div class="about-img"><div class="about-img-i">MT</div></div>
+    </div>
+    <div data-r data-d="2">
+      <div class="about-tag">L'avvocato</div>
+      <h2 class="about-h">Matteo Tremolada,<br><i>10+ anni di contratti.</i></h2>
+      <p class="about-p">Ho scelto di specializzarmi in contrattualistica d'impresa perché è dove il lavoro preventivo produce i risultati più tangibili per chi guida un'azienda. Un contratto ben scritto è un investimento che previene problemi. Un contratto scritto male li crea.</p>
+      <p class="about-p">Lavoro con PMI, startup e professionisti che vogliono capire cosa firmano, non solo firmarlo. Ogni documento parte da una domanda: dove sono i rischi e come li gestiamo</p>
+      <div class="about-credos">
+        <div class="credo"><strong>500+</strong><span>Contratti redatti o revisionati negli ultimi 10 anni</span></div>
+        <div class="credo"><strong>4.9</strong><span>Valutazione media su Google e Addlance</span></div>
+        <div class="credo"><strong>24h</strong><span>Tempo medio per la prima risposta</span></div>
+        <div class="credo"><strong>0</strong><span>Sorprese: tariffe sempre concordate prima</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec faq-wrap" id="faq">
+  <div data-r style="text-align:center;max-width:680px;margin:0 auto">
+    <div class="sec-tag">FAQ</div>
+    <h2 class="sec-h">Le domande <i>che ci fanno tutti.</i></h2>
+  </div>
+  <div class="faq-list" data-r data-d="2">
+    <details class="faq">
+      <summary>Quanto è affidabile l'Audit online?</summary>
+      <p>Il Contract Audit dà un'indicazione strutturata del tuo profilo di rischio basata su cinque aree-chiave standard. È uno strumento di partenza: non sostituisce un'analisi documentale completa. Serve per capire dove concentrarsi e come orientare, in linea di massima, il successivo check-up professionale.</p>
+    </details>
+    <details class="faq">
+      <summary>Le tariffe pubblicate sono fisse?</summary>
+      <p>No, sono forchette realistiche basate sui casi più frequenti. Il prezzo finale dipende dalla complessità specifica, dalle parti coinvolte e dall'urgenza. Riceverai sempre un preventivo dettagliato prima di iniziare, senza sorprese.</p>
+    </details>
+    <details class="faq">
+      <summary>Posso usare la consulenza solo una volta o devo impegnarmi annualmente?</summary>
+      <p>Entrambe le formule sono possibili. Molti clienti iniziano con un singolo intervento (un contratto, una revisione, un NDA) e poi valutano il pacchetto annuale in caso di necessità. Nessun obbligo di continuità.</p>
+    </details>
+    <details class="faq">
+      <summary>Come gestite la riservatezza dei documenti?</summary>
+      <p>Ogni informazione condivisa è coperta dal vincolo di segreto professionale dell'avvocato.</p>
+    </details>
+    <details class="faq">
+      <summary>Lavorate solo a Monza e Milano o anche in altre città?</summary>
+      <p>Lo studio ha sede a Monza ma opera in tutta Italia. Per la maggior parte dei clienti il lavoro avviene da remoto: video-call, documenti scambiati via email, condivisione in Cloud. Per esigenze specifiche siamo disponibili anche in presenza.</p>
+    </details>
+    <details class="faq">
+      <summary>E se dopo la firma sorge una controversia?</summary>
+      <p>Un contratto ben redatto riduce drasticamente il rischio. Se nonostante questo emerge un problema, possiamo assistervi anche nella fase di gestione del contenzioso, partendo dal vantaggio di conoscere il documento alla base.</p>
+    </details>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div data-r>
+    <h2 class="final-h">Il tuo prossimo contratto<br>merita <i>un audit serio.</i></h2>
+    <p class="final-p">Inizia dal tool gratuito — 2 minuti, nessun impegno. Oppure scrivici direttamente.</p>
+    <div class="final-actions">
+      <a href="#audit" class="btn-cream">Avvia il Contract Audit →</a>
+      <a href="https://wa.me/393934411700?text=Buongiorno%20Avv.%20Tremolada%2C%20vorrei%20una%20consulenza%20contrattuale." target="_blank" rel="noopener" class="btn-ghost">💬 WhatsApp</a>
+      <a href="tel:+393934411700" class="btn-ghost">📞 Chiama</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-main">
+    <div class="foot-brand">
+      <div class="foot-brand-name"><span class="brand-mark">MT</span> Tremolada</div>
+      <p>Studio Legale Avv. Matteo Tremolada — Contrattualistica d'impresa, recupero crediti, sfratti.<br>Via D'Azeglio 8 · 20900 Monza (MB) · Foro di Monza<br>P.IVA 10173930966</p>
+      <p style="margin-top:10px"><a href="mailto:avv.tremolada@gmail.com">avv.tremolada@gmail.com</a> · <a href="tel:+393934411700">Chiama</a></p>
+    </div>
+    <div class="foot-col">
+      <h4>Servizi</h4>
+      <a href="#servizi">Contrattualistica</a>
+      <a href="#tariffe">Tariffe</a>
+      <a href="https://recuperocreditiaziende.it" target="_blank" rel="noopener">Recupero crediti</a>
+      <a href="https://recuperocreditiaziende.it/sfratti.html" target="_blank" rel="noopener">Sfratti</a>
+    </div>
+    <div class="foot-col">
+      <h4>Studio</h4>
+      <a href="#avvocato">L'avvocato</a>
+      <a href="#audit">Contract Audit</a>
+      <a href="/guide-contrattualistica.html">Guide</a>
+      <a href="#faq">FAQ</a>
+      <a href="/privacy.html">Privacy</a>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <p>© 2026 Studio Legale Tremolada · P.IVA 10173930966</p>
+    <p>Foro di Monza · Lombardia</p>
+  </div>
+  <div class="foot-disc">
+    <p>La presente pagina ha finalità esclusivamente informativa. Le informazioni non costituiscono garanzia di risultato né sostituiscono una consulenza personalizzata. Il rapporto professionale si instaura solo a seguito di conferimento formale di incarico.</p>
+  </div>
+</footer>
+
+<div class="ck" id="ckb">
+  <p>Utilizziamo cookie tecnici e, previo consenso, analitici. <a href="/privacy.html">Privacy Policy</a>.</p>
+  <div class="ck-btns">
+    <button class="ck-btn" onclick="ckR()">Rifiuta</button>
+    <button class="ck-btn ck-ok" onclick="ckA()">Accetta</button>
+  </div>
+</div>
+
+<script>
+function ckA(){localStorage.setItem('ck','1');document.getElementById('ckb').style.display='none'}
+function ckR(){localStorage.setItem('ck','0');document.getElementById('ckb').style.display='none'}
+if(localStorage.getItem('ck'))document.getElementById('ckb').style.display='none';
+
+window.addEventListener('scroll',function(){var s=document.documentElement,p=(s.scrollTop/(s.scrollHeight-s.clientHeight))*100;document.getElementById('prog').style.width=p+'%'},{passive:true});
+
+(function(){var b=document.getElementById('mobBar');function u(){if(window.innerWidth<=980&&window.scrollY>400)b.classList.add('show');else b.classList.remove('show')}window.addEventListener('scroll',u,{passive:true});window.addEventListener('resize',u,{passive:true});u()})();
+
+(function(){var els=document.querySelectorAll('[data-r]');if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('v')});return}var o=new IntersectionObserver(function(ents,obs){ents.forEach(function(e){if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -30px 0px'});els.forEach(function(e){o.observe(e)})})();
+
+var qScores=[null,null,null,null,null];
+var qHeads=['Iniziamo dalla tua documentazione','Come gestisci la riservatezza','Operazioni con l\'estero','Limitazioni di responsabilità','Proprietà intellettuale'];
+var areas=['Documentazione','Riservatezza','Internazionale','Responsabilità','Proprietà intellettuale'];
+
+function pickOpt(el,qNum,pts){
+  var step=document.getElementById('q'+qNum);
+  step.querySelectorAll('.q-opt').forEach(function(o){o.classList.remove('selected')});
+  el.classList.add('selected');
+  qScores[qNum-1]=pts;
+  document.getElementById('btn'+qNum).removeAttribute('disabled');
+}
+function go(from,to){
+  document.getElementById('q'+from).classList.remove('active');
+  document.getElementById('q'+to).classList.add('active');
+  document.getElementById('qProg').style.width=(to*20)+'%';
+  document.getElementById('qPct').textContent=(to*20)+'%';
+  document.getElementById('qCur').textContent=to;
+  document.getElementById('diagHead').textContent=qHeads[to-1];
+}
+function back(from,to){
+  document.getElementById('q'+from).classList.remove('active');
+  document.getElementById('q'+to).classList.add('active');
+  document.getElementById('qProg').style.width=(to*20)+'%';
+  document.getElementById('qPct').textContent=(to*20)+'%';
+  document.getElementById('qCur').textContent=to;
+  document.getElementById('diagHead').textContent=qHeads[to-1];
+}
+function showResult(){
+  document.getElementById('q5').classList.remove('active');
+  document.getElementById('result').classList.add('show');
+  document.getElementById('diagHead').textContent='Il tuo profilo di rischio';
+  document.getElementById('qProg').style.width='100%';
+  document.getElementById('qPct').textContent='100%';
+  var totalRisk=qScores.reduce(function(a,b){return a+(b||0)},0);
+  var maxRisk=15;
+  var score=Math.round(((maxRisk-totalRisk)/maxRisk)*100);
+  var sc=document.getElementById('scoreVal');
+  var ring=document.getElementById('scoreRing');
+  var t=null;
+  function animScore(ts){
+    if(!t)t=ts;
+    var p=Math.min((ts-t)/1100,1);
+    sc.textContent=Math.round(p*score);
+    ring.style.strokeDashoffset=263.9-(263.9*(p*score)/100);
+    if(p<1)requestAnimationFrame(animScore);
+    else sc.textContent=score;
+  }
+  requestAnimationFrame(animScore);
+  var pill=document.getElementById('riskTag');
+  var rh=document.getElementById('riskH');
+  var rp=document.getElementById('riskP');
+  var ringColor='#6B2C2C';
+  if(totalRisk<=4){
+    pill.className='risk-tag risk-low';pill.textContent='Rischio basso';
+    rh.textContent='Profilo solido — buone pratiche in atto.';
+    rp.textContent='I tuoi processi contrattuali sembrano allineati. Una revisione periodica annuale è comunque consigliata per restare aggiornato alle evoluzioni normative.';
+    ringColor='#2D6A4F';
+  } else if(totalRisk<=9){
+    pill.className='risk-tag risk-mid';pill.textContent='Rischio moderato';
+    rh.textContent='Alcune aree meritano attenzione.';
+    rp.textContent='Il tuo profilo presenta lacune che una consulenza mirata può identificare e risolvere prima che diventino problemi concreti. Una revisione selettiva è consigliata.';
+    ringColor='#C77E1E';
+  } else {
+    pill.className='risk-tag risk-hi';pill.textContent='Rischio elevato';
+    rh.textContent='Esposizione significativa.';
+    rp.textContent='Dalle tue risposte emergono aree di vulnerabilità concrete. Una valutazione professionale è fortemente consigliata: agire ora costa molto meno che gestire le conseguenze.';
+    ringColor='#A03030';
+  }
+  ring.setAttribute('stroke',ringColor);
+  var bdRows=document.getElementById('bdRows');
+  bdRows.innerHTML='';
+  for(var i=0;i<5;i++){
+    var risk=qScores[i]||0;
+    var pctRisk=Math.round((risk/3)*100);
+    var pctSafe=100-pctRisk;
+    var color=pctSafe>=66?'#2D6A4F':pctSafe>=33?'#C77E1E':'#A03030';
+    var row='<div class="bd-row"><span class="bd-name">'+areas[i]+'</span><div class="bd-bar"><div class="bd-fill" style="width:'+pctSafe+'%;background:'+color+'"></div></div><span class="bd-pct">'+pctSafe+'</span></div>';
+    bdRows.innerHTML+=row;
+  }
+}
+
+function submitGate(){
+  var name=document.getElementById('gName').value.trim();
+  var email=document.getElementById('gEmail').value.trim();
+  var tel=document.getElementById('gTel').value.trim();
+  if(!name){document.getElementById('gName').focus();return}
+  if(!email||!email.includes('@')){document.getElementById('gEmail').focus();return}
+  document.getElementById('gate').style.display='none';
+  document.getElementById('thanks').classList.add('show');
+  fetch('https://formspree.io/f/xgopeklz',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({nome:name,email:email,telefono:tel,tipo:'Contract Audit completato',scores:qScores.join('-'),_subject:'Nuovo lead — Contract Audit'})}).catch(function(){});
+}
+</script>
+</body>
+</html>
